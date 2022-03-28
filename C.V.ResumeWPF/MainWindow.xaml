@@ -12,13 +12,17 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" Style="{StaticResource StackBlock}">
             <TextBlock Text="Составление твоего лучшего резюме!" Width="auto" Margin="5" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
         </StackPanel>
-
-        <Frame Grid.Row="1" x:Name="MyFrame" Content="Здесь будет описана вся твоя потрясающая и насыщанная жизнь!" Background="Gray"/>
-        <StackPanel Grid.Row="2">
-            <TextBlock>Что-то да будет</TextBlock>
+        <Border Grid.Row="1" Background="Gray">
+            <StackPanel Style="{StaticResource StackBlock}">
+                <Frame x:Name="MyFrame" Content="Здесь будет описана вся твоя потрясающая и насыщанная жизнь!" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gainsboro"/>
+                <Button Content="Составить резюме?"/>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="2" Style="{StaticResource StackBlock}">
+            <TextBlock Margin="5">Что-то да будет</TextBlock>
         </StackPanel>
     </Grid>
 </Window>

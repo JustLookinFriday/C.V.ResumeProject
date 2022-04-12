@@ -79,6 +79,10 @@
     <Compile Include="View\PersonalInfoPage.xaml.cs">
       <DependentUpon>PersonalInfoPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Assets\Dictionaties\Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -152,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
+    <Folder Include="Assets\Icons\" />
     <Folder Include="Assets\Images\" />
     <Folder Include="Model\ParticalClasses\" />
     <Folder Include="ViewModel\Classes\" />

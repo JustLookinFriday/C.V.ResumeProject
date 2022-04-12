@@ -1,28 +1,39 @@
-﻿<Window x:Class="C.V.ResumeWPF.MainWindow"
+﻿<Window Background="Black" x:Class="C.V.ResumeWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C.V.ResumeWPF"
         mc:Ignorable="d"
-        Title="C.V.Resume" Height="450" Width="800">
+        Title="C.V.Resume" Height="858" Width="595">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="268"/>
+            <RowDefinition Height="306"/>
+            <RowDefinition Height="223"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Style="{StaticResource StackBlock}">
-            <TextBlock Text="Составление твоего лучшего резюме!" Width="auto" Margin="5" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
-        </StackPanel>
-        <Border Grid.Row="1" Background="Gray">
+        <Grid Grid.Row="0" Background="#ffffff">
+            <Line X1="242" Stroke="#000000" Opacity="0.5" StrokeThickness="1"  HorizontalAlignment="Center" Margin="25"/>
             <StackPanel Style="{StaticResource StackBlock}">
-                <Frame x:Name="MyFrame" Content="Здесь будет описана вся твоя потрясающая и насыщанная жизнь!" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gainsboro"/>
-                <Button Content="Составить резюме?"/>
+                <Separator Width="100" Height="150"/>
             </StackPanel>
-        </Border>
-        <StackPanel Grid.Row="2" Style="{StaticResource StackBlock}">
-            <TextBlock Margin="5">Что-то да будет</TextBlock>
-        </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Frame x:Name="MyFrame" Background="#c4c4c4"/>
+            <StackPanel Style="{StaticResource StackBlock}">
+                <TextBlock Text="The controls will appear here when you enter the page!" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Background="{StaticResource ColorSecondary50}">
+            <StackPanel Style="{StaticResource StackBlock}">
+                <TextBlock>Example Block</TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3" Background="{StaticResource ColorSecondary20}">
+            <StackPanel Style="{StaticResource StackBlock}">
+                <TextBlock>Footer</TextBlock>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

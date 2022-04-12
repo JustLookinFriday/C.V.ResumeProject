@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C.V.ResumeWPF", "C.V.ResumeWPF\C.V.ResumeWPF.csproj", "{597AE568-1359-4258-9446-8BB516B9951A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Objects", "Objects", "{11BCCF70-E12D-47A9-B235-51E0E194928E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C.V.ResumeTests", "C.V.ResumeTests\C.V.ResumeTests.csproj", "{3FC81566-5E5C-4189-9D05-D24EB7B8F0E6}"
 EndProject
 Global
@@ -26,10 +24,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{597AE568-1359-4258-9446-8BB516B9951A} = {11BCCF70-E12D-47A9-B235-51E0E194928E}
-		{3FC81566-5E5C-4189-9D05-D24EB7B8F0E6} = {11BCCF70-E12D-47A9-B235-51E0E194928E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B63DB32-4D78-4128-9B77-399A1B993F67}

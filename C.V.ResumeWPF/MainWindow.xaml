@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C.V.ResumeWPF"
         mc:Ignorable="d"
-        Title="c.v.resume.net" Height="900" Width="650"
-        WindowStartupLocation ="CenterScreen">
+        Title="MainWindow" Height="900" Width="650">
     <Grid Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="797"/>
@@ -67,7 +66,7 @@
         <Grid Grid.Row="1" Background="{StaticResource ColorSecondary20}">
             <Button x:Name="PreviousButton" Content="&#60;" Style="{StaticResource SwitchButton}" HorizontalAlignment="Left" Click="PreviousButton_Click" Visibility="Hidden"/>
             <StackPanel Style="{StaticResource StackPanel}">
-                <TextBlock Text="@c.v.resume.net" FontSize="8"/>
+                <TextBlock Text="{Binding ElementName=MainFrame, Path=Content.Title}" FontSize="8"/>
             </StackPanel>
             <Button x:Name="SubsequentButton" Content="&#62;" Style="{StaticResource SwitchButton}" HorizontalAlignment="Right" Click="SubsequentButton_Click" Visibility="Hidden"/>
         </Grid>

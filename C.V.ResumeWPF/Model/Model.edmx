@@ -1,0 +1,1106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище C.V.ResumeDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdditionalInfo">
+          <Key>
+            <PropertyRef Name="IDAdditionalInfo" />
+          </Key>
+          <Property Name="IDAdditionalInfo" Type="int" Nullable="false" />
+          <Property Name="IDCategories" Type="int" />
+          <Property Name="MilitaryService" Type="bit" Nullable="false" />
+          <Property Name="Recommendations" Type="ntext" />
+          <Property Name="Hobby" Type="ntext" />
+          <Property Name="PersonalQualities" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Busyness">
+          <Key>
+            <PropertyRef Name="IDBusyness" />
+          </Key>
+          <Property Name="IDBusyness" Type="int" Nullable="false" />
+          <Property Name="Busyness" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="IDCategories" />
+          </Key>
+          <Property Name="IDCategories" Type="int" Nullable="false" />
+          <Property Name="Categories" Type="varchar" MaxLength="2" />
+          <Property Name="Subcategories" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="CousersAndTrainings">
+          <Key>
+            <PropertyRef Name="IDCousersAndTrainings" />
+          </Key>
+          <Property Name="IDCousersAndTrainings" Type="int" Nullable="false" />
+          <Property Name="Course" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Institution" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IDYearOfGraduction" Type="int" />
+          <Property Name="Duration" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="IDEducation" />
+          </Key>
+          <Property Name="IDEducation" Type="int" Nullable="false" />
+          <Property Name="EducationalInstitution" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Faculty" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Specialization" Type="nvarchar(max)" />
+          <Property Name="IDYearOfGraduation" Type="int" Nullable="false" />
+          <Property Name="IDEducationalForm" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EducationForm">
+          <Key>
+            <PropertyRef Name="IDEducationForm" />
+          </Key>
+          <Property Name="IDEducationForm" Type="int" Nullable="false" />
+          <Property Name="EducationForm" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Experience">
+          <Key>
+            <PropertyRef Name="IDExperience" />
+          </Key>
+          <Property Name="IDExperience" Type="int" Nullable="false" />
+          <Property Name="Hire" Type="date" />
+          <Property Name="Fire" Type="date" />
+          <Property Name="Now" Type="bit" />
+          <Property Name="LastPost" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FullEmployment" Type="bit" />
+          <Property Name="Organization" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ResponsibilitiesAndAchievements" Type="ntext" />
+        </EntityType>
+        <EntityType Name="FamilyStatus">
+          <Key>
+            <PropertyRef Name="IDFamilyStatus" />
+          </Key>
+          <Property Name="IDFamilyStatus" Type="int" Nullable="false" />
+          <Property Name="FamilyStatus" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Guest">
+          <Key>
+            <PropertyRef Name="IDGuest" />
+          </Key>
+          <Property Name="IDGuest" Type="int" Nullable="false" />
+          <Property Name="Pic" Type="image" />
+          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar(max)" />
+          <Property Name="Post" Type="nvarchar(max)" />
+          <Property Name="DesiredSalary" Type="money" Nullable="false" />
+          <Property Name="IDBusyness" Type="int" Nullable="false" />
+          <Property Name="IDWorkPlan" Type="int" Nullable="false" />
+          <Property Name="BusinessTrips" Type="int" />
+          <Property Name="Phone" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="CityOfResidence" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IDMovement" Type="int" Nullable="false" />
+          <Property Name="Citizenship" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="IDSex" Type="int" Nullable="false" />
+          <Property Name="IDFamilyStatus" Type="int" Nullable="false" />
+          <Property Name="Kids" Type="bit" Nullable="false" />
+          <Property Name="IDLearning" Type="int" Nullable="false" />
+          <Property Name="IDExperience" Type="int" Nullable="false" />
+          <Property Name="IDEducation" Type="int" />
+          <Property Name="IDCousersAndTrainings" Type="int" />
+          <Property Name="IDITSkills" Type="int" Nullable="false" />
+          <Property Name="IDAdditionalInfo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ITSkills">
+          <Key>
+            <PropertyRef Name="IDITSkills" />
+          </Key>
+          <Property Name="IDITSkills" Type="int" Nullable="false" />
+          <Property Name="LanguageKnowledge" Type="ntext" />
+          <Property Name="Ownership" Type="ntext" />
+          <Property Name="IDProficiency" Type="int" />
+        </EntityType>
+        <EntityType Name="Learning">
+          <Key>
+            <PropertyRef Name="IDLearning" />
+          </Key>
+          <Property Name="IDLearning" Type="int" Nullable="false" />
+          <Property Name="Learning" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movement">
+          <Key>
+            <PropertyRef Name="IDMovement" />
+          </Key>
+          <Property Name="IDMovement" Type="int" Nullable="false" />
+          <Property Name="Movement" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proficiency">
+          <Key>
+            <PropertyRef Name="IDProficiency" />
+          </Key>
+          <Property Name="IDProficiency" Type="int" Nullable="false" />
+          <Property Name="Ability" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Other" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="IDSex" />
+          </Key>
+          <Property Name="IDSex" Type="int" Nullable="false" />
+          <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkPlan">
+          <Key>
+            <PropertyRef Name="IDWorkPlan" />
+          </Key>
+          <Property Name="IDWorkPlan" Type="int" Nullable="false" />
+          <Property Name="WorkPlan" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="YearOfGraduation">
+          <Key>
+            <PropertyRef Name="IDYearOfGraduation" />
+          </Key>
+          <Property Name="IDYearOfGraduation" Type="int" Nullable="false" />
+          <Property Name="YearOfGraduation" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AdditionalInfo_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="AdditionalInfo" Type="Self.AdditionalInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="IDCategories" />
+            </Principal>
+            <Dependent Role="AdditionalInfo">
+              <PropertyRef Name="IDCategories" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CousersAndTrainings_YearOfGraduation">
+          <End Role="YearOfGraduation" Type="Self.YearOfGraduation" Multiplicity="0..1" />
+          <End Role="CousersAndTrainings" Type="Self.CousersAndTrainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearOfGraduation">
+              <PropertyRef Name="IDYearOfGraduation" />
+            </Principal>
+            <Dependent Role="CousersAndTrainings">
+              <PropertyRef Name="IDYearOfGraduction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Education_YearOfGraduation">
+          <End Role="YearOfGraduation" Type="Self.YearOfGraduation" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearOfGraduation">
+              <PropertyRef Name="IDYearOfGraduation" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="IDYearOfGraduation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EduInfo_EducationForm">
+          <End Role="EducationForm" Type="Self.EducationForm" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationForm">
+              <PropertyRef Name="IDEducationForm" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="IDEducationalForm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_AdditionalInfo">
+          <End Role="AdditionalInfo" Type="Self.AdditionalInfo" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdditionalInfo">
+              <PropertyRef Name="IDAdditionalInfo" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDAdditionalInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Busyness">
+          <End Role="Busyness" Type="Self.Busyness" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Busyness">
+              <PropertyRef Name="IDBusyness" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDBusyness" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_CousersAndTrainings">
+          <End Role="CousersAndTrainings" Type="Self.CousersAndTrainings" Multiplicity="0..1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CousersAndTrainings">
+              <PropertyRef Name="IDCousersAndTrainings" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDCousersAndTrainings" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Education">
+          <End Role="Education" Type="Self.Education" Multiplicity="0..1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Education">
+              <PropertyRef Name="IDEducation" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDEducation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Experience">
+          <End Role="Experience" Type="Self.Experience" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Experience">
+              <PropertyRef Name="IDExperience" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDExperience" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_FamilyStatus">
+          <End Role="FamilyStatus" Type="Self.FamilyStatus" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FamilyStatus">
+              <PropertyRef Name="IDFamilyStatus" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDFamilyStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_ITSkills">
+          <End Role="ITSkills" Type="Self.ITSkills" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ITSkills">
+              <PropertyRef Name="IDITSkills" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDITSkills" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Learning">
+          <End Role="Learning" Type="Self.Learning" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learning">
+              <PropertyRef Name="IDLearning" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDLearning" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Movement">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="IDMovement" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDMovement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Sex">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="IDSex" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDSex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_WorkPlan">
+          <End Role="WorkPlan" Type="Self.WorkPlan" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkPlan">
+              <PropertyRef Name="IDWorkPlan" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDWorkPlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITSkills_Proficiency">
+          <End Role="Proficiency" Type="Self.Proficiency" Multiplicity="0..1" />
+          <End Role="ITSkills" Type="Self.ITSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proficiency">
+              <PropertyRef Name="IDProficiency" />
+            </Principal>
+            <Dependent Role="ITSkills">
+              <PropertyRef Name="IDProficiency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище CVResumeDBModelContainer">
+          <EntitySet Name="AdditionalInfo" EntityType="Self.AdditionalInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Busyness" EntityType="Self.Busyness" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CousersAndTrainings" EntityType="Self.CousersAndTrainings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EducationForm" EntityType="Self.EducationForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Experience" EntityType="Self.Experience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FamilyStatus" EntityType="Self.FamilyStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Guest" EntityType="Self.Guest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ITSkills" EntityType="Self.ITSkills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Learning" EntityType="Self.Learning" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movement" EntityType="Self.Movement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proficiency" EntityType="Self.Proficiency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sex" EntityType="Self.Sex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkPlan" EntityType="Self.WorkPlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YearOfGraduation" EntityType="Self.YearOfGraduation" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AdditionalInfo_Categories" Association="Self.FK_AdditionalInfo_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="AdditionalInfo" EntitySet="AdditionalInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CousersAndTrainings_YearOfGraduation" Association="Self.FK_CousersAndTrainings_YearOfGraduation">
+            <End Role="YearOfGraduation" EntitySet="YearOfGraduation" />
+            <End Role="CousersAndTrainings" EntitySet="CousersAndTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Education_YearOfGraduation" Association="Self.FK_Education_YearOfGraduation">
+            <End Role="YearOfGraduation" EntitySet="YearOfGraduation" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EduInfo_EducationForm" Association="Self.FK_EduInfo_EducationForm">
+            <End Role="EducationForm" EntitySet="EducationForm" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_AdditionalInfo" Association="Self.FK_Guest_AdditionalInfo">
+            <End Role="AdditionalInfo" EntitySet="AdditionalInfo" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Busyness" Association="Self.FK_Guest_Busyness">
+            <End Role="Busyness" EntitySet="Busyness" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_CousersAndTrainings" Association="Self.FK_Guest_CousersAndTrainings">
+            <End Role="CousersAndTrainings" EntitySet="CousersAndTrainings" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Education" Association="Self.FK_Guest_Education">
+            <End Role="Education" EntitySet="Education" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Experience" Association="Self.FK_Guest_Experience">
+            <End Role="Experience" EntitySet="Experience" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_FamilyStatus" Association="Self.FK_Guest_FamilyStatus">
+            <End Role="FamilyStatus" EntitySet="FamilyStatus" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_ITSkills" Association="Self.FK_Guest_ITSkills">
+            <End Role="ITSkills" EntitySet="ITSkills" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Learning" Association="Self.FK_Guest_Learning">
+            <End Role="Learning" EntitySet="Learning" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Movement" Association="Self.FK_Guest_Movement">
+            <End Role="Movement" EntitySet="Movement" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Sex" Association="Self.FK_Guest_Sex">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_WorkPlan" Association="Self.FK_Guest_WorkPlan">
+            <End Role="WorkPlan" EntitySet="WorkPlan" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITSkills_Proficiency" Association="Self.FK_ITSkills_Proficiency">
+            <End Role="Proficiency" EntitySet="Proficiency" />
+            <End Role="ITSkills" EntitySet="ITSkills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="C.V.ResumeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdditionalInfo">
+          <Key>
+            <PropertyRef Name="IDAdditionalInfo" />
+          </Key>
+          <Property Name="IDAdditionalInfo" Type="Int32" Nullable="false" />
+          <Property Name="IDCategories" Type="Int32" />
+          <Property Name="MilitaryService" Type="Boolean" Nullable="false" />
+          <Property Name="Recommendations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hobby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalQualities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_AdditionalInfo_Categories" FromRole="AdditionalInfo" ToRole="Categories" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_AdditionalInfo" FromRole="AdditionalInfo" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="Busyness">
+          <Key>
+            <PropertyRef Name="IDBusyness" />
+          </Key>
+          <Property Name="IDBusyness" Type="Int32" Nullable="false" />
+          <Property Name="Busyness1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_Busyness" FromRole="Busyness" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="IDCategories" />
+          </Key>
+          <Property Name="IDCategories" Type="Int32" Nullable="false" />
+          <Property Name="Categories1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Subcategories" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AdditionalInfo" Relationship="Self.FK_AdditionalInfo_Categories" FromRole="Categories" ToRole="AdditionalInfo" />
+        </EntityType>
+        <EntityType Name="CousersAndTrainings">
+          <Key>
+            <PropertyRef Name="IDCousersAndTrainings" />
+          </Key>
+          <Property Name="IDCousersAndTrainings" Type="Int32" Nullable="false" />
+          <Property Name="Course" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Institution" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDYearOfGraduction" Type="Int32" />
+          <Property Name="Duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="YearOfGraduation" Relationship="Self.FK_CousersAndTrainings_YearOfGraduation" FromRole="CousersAndTrainings" ToRole="YearOfGraduation" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_CousersAndTrainings" FromRole="CousersAndTrainings" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="IDEducation" />
+          </Key>
+          <Property Name="IDEducation" Type="Int32" Nullable="false" />
+          <Property Name="EducationalInstitution" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Faculty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Specialization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDYearOfGraduation" Type="Int32" Nullable="false" />
+          <Property Name="IDEducationalForm" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="YearOfGraduation" Relationship="Self.FK_Education_YearOfGraduation" FromRole="Education" ToRole="YearOfGraduation" />
+          <NavigationProperty Name="EducationForm" Relationship="Self.FK_EduInfo_EducationForm" FromRole="Education" ToRole="EducationForm" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_Education" FromRole="Education" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="EducationForm">
+          <Key>
+            <PropertyRef Name="IDEducationForm" />
+          </Key>
+          <Property Name="IDEducationForm" Type="Int32" Nullable="false" />
+          <Property Name="EducationForm1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Education" Relationship="Self.FK_EduInfo_EducationForm" FromRole="EducationForm" ToRole="Education" />
+        </EntityType>
+        <EntityType Name="Experience">
+          <Key>
+            <PropertyRef Name="IDExperience" />
+          </Key>
+          <Property Name="IDExperience" Type="Int32" Nullable="false" />
+          <Property Name="Hire" Type="DateTime" Precision="0" />
+          <Property Name="Fire" Type="DateTime" Precision="0" />
+          <Property Name="Now" Type="Boolean" />
+          <Property Name="LastPost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullEmployment" Type="Boolean" />
+          <Property Name="Organization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResponsibilitiesAndAchievements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_Experience" FromRole="Experience" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="FamilyStatus">
+          <Key>
+            <PropertyRef Name="IDFamilyStatus" />
+          </Key>
+          <Property Name="IDFamilyStatus" Type="Int32" Nullable="false" />
+          <Property Name="FamilyStatus1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_FamilyStatus" FromRole="FamilyStatus" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="Guest">
+          <Key>
+            <PropertyRef Name="IDGuest" />
+          </Key>
+          <Property Name="IDGuest" Type="Int32" Nullable="false" />
+          <Property Name="Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DesiredSalary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="IDBusyness" Type="Int32" Nullable="false" />
+          <Property Name="IDWorkPlan" Type="Int32" Nullable="false" />
+          <Property Name="BusinessTrips" Type="Int32" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CityOfResidence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDMovement" Type="Int32" Nullable="false" />
+          <Property Name="Citizenship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IDSex" Type="Int32" Nullable="false" />
+          <Property Name="IDFamilyStatus" Type="Int32" Nullable="false" />
+          <Property Name="Kids" Type="Boolean" Nullable="false" />
+          <Property Name="IDLearning" Type="Int32" Nullable="false" />
+          <Property Name="IDExperience" Type="Int32" Nullable="false" />
+          <Property Name="IDEducation" Type="Int32" />
+          <Property Name="IDCousersAndTrainings" Type="Int32" />
+          <Property Name="IDITSkills" Type="Int32" Nullable="false" />
+          <Property Name="IDAdditionalInfo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AdditionalInfo" Relationship="Self.FK_Guest_AdditionalInfo" FromRole="Guest" ToRole="AdditionalInfo" />
+          <NavigationProperty Name="Busyness" Relationship="Self.FK_Guest_Busyness" FromRole="Guest" ToRole="Busyness" />
+          <NavigationProperty Name="CousersAndTrainings" Relationship="Self.FK_Guest_CousersAndTrainings" FromRole="Guest" ToRole="CousersAndTrainings" />
+          <NavigationProperty Name="Education" Relationship="Self.FK_Guest_Education" FromRole="Guest" ToRole="Education" />
+          <NavigationProperty Name="Experience" Relationship="Self.FK_Guest_Experience" FromRole="Guest" ToRole="Experience" />
+          <NavigationProperty Name="FamilyStatus" Relationship="Self.FK_Guest_FamilyStatus" FromRole="Guest" ToRole="FamilyStatus" />
+          <NavigationProperty Name="ITSkills" Relationship="Self.FK_Guest_ITSkills" FromRole="Guest" ToRole="ITSkills" />
+          <NavigationProperty Name="Learning" Relationship="Self.FK_Guest_Learning" FromRole="Guest" ToRole="Learning" />
+          <NavigationProperty Name="Movement" Relationship="Self.FK_Guest_Movement" FromRole="Guest" ToRole="Movement" />
+          <NavigationProperty Name="Sex" Relationship="Self.FK_Guest_Sex" FromRole="Guest" ToRole="Sex" />
+          <NavigationProperty Name="WorkPlan" Relationship="Self.FK_Guest_WorkPlan" FromRole="Guest" ToRole="WorkPlan" />
+        </EntityType>
+        <EntityType Name="ITSkills">
+          <Key>
+            <PropertyRef Name="IDITSkills" />
+          </Key>
+          <Property Name="IDITSkills" Type="Int32" Nullable="false" />
+          <Property Name="LanguageKnowledge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ownership" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDProficiency" Type="Int32" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_ITSkills" FromRole="ITSkills" ToRole="Guest" />
+          <NavigationProperty Name="Proficiency" Relationship="Self.FK_ITSkills_Proficiency" FromRole="ITSkills" ToRole="Proficiency" />
+        </EntityType>
+        <EntityType Name="Learning">
+          <Key>
+            <PropertyRef Name="IDLearning" />
+          </Key>
+          <Property Name="IDLearning" Type="Int32" Nullable="false" />
+          <Property Name="Learning1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_Learning" FromRole="Learning" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="Movement">
+          <Key>
+            <PropertyRef Name="IDMovement" />
+          </Key>
+          <Property Name="IDMovement" Type="Int32" Nullable="false" />
+          <Property Name="Movement1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_Movement" FromRole="Movement" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="Proficiency">
+          <Key>
+            <PropertyRef Name="IDProficiency" />
+          </Key>
+          <Property Name="IDProficiency" Type="Int32" Nullable="false" />
+          <Property Name="Ability" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ITSkills" Relationship="Self.FK_ITSkills_Proficiency" FromRole="Proficiency" ToRole="ITSkills" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="IDSex" />
+          </Key>
+          <Property Name="IDSex" Type="Int32" Nullable="false" />
+          <Property Name="Sex1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_Sex" FromRole="Sex" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="WorkPlan">
+          <Key>
+            <PropertyRef Name="IDWorkPlan" />
+          </Key>
+          <Property Name="IDWorkPlan" Type="Int32" Nullable="false" />
+          <Property Name="WorkPlan1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK_Guest_WorkPlan" FromRole="WorkPlan" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="YearOfGraduation">
+          <Key>
+            <PropertyRef Name="IDYearOfGraduation" />
+          </Key>
+          <Property Name="IDYearOfGraduation" Type="Int32" Nullable="false" />
+          <Property Name="YearOfGraduation1" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CousersAndTrainings" Relationship="Self.FK_CousersAndTrainings_YearOfGraduation" FromRole="YearOfGraduation" ToRole="CousersAndTrainings" />
+          <NavigationProperty Name="Education" Relationship="Self.FK_Education_YearOfGraduation" FromRole="YearOfGraduation" ToRole="Education" />
+        </EntityType>
+        <Association Name="FK_AdditionalInfo_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="AdditionalInfo" Type="Self.AdditionalInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="IDCategories" />
+            </Principal>
+            <Dependent Role="AdditionalInfo">
+              <PropertyRef Name="IDCategories" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_AdditionalInfo">
+          <End Role="AdditionalInfo" Type="Self.AdditionalInfo" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdditionalInfo">
+              <PropertyRef Name="IDAdditionalInfo" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDAdditionalInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Busyness">
+          <End Role="Busyness" Type="Self.Busyness" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Busyness">
+              <PropertyRef Name="IDBusyness" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDBusyness" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CousersAndTrainings_YearOfGraduation">
+          <End Role="YearOfGraduation" Type="Self.YearOfGraduation" Multiplicity="0..1" />
+          <End Role="CousersAndTrainings" Type="Self.CousersAndTrainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearOfGraduation">
+              <PropertyRef Name="IDYearOfGraduation" />
+            </Principal>
+            <Dependent Role="CousersAndTrainings">
+              <PropertyRef Name="IDYearOfGraduction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_CousersAndTrainings">
+          <End Role="CousersAndTrainings" Type="Self.CousersAndTrainings" Multiplicity="0..1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CousersAndTrainings">
+              <PropertyRef Name="IDCousersAndTrainings" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDCousersAndTrainings" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Education_YearOfGraduation">
+          <End Role="YearOfGraduation" Type="Self.YearOfGraduation" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearOfGraduation">
+              <PropertyRef Name="IDYearOfGraduation" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="IDYearOfGraduation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EduInfo_EducationForm">
+          <End Role="EducationForm" Type="Self.EducationForm" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationForm">
+              <PropertyRef Name="IDEducationForm" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="IDEducationalForm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Education">
+          <End Role="Education" Type="Self.Education" Multiplicity="0..1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Education">
+              <PropertyRef Name="IDEducation" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDEducation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Experience">
+          <End Role="Experience" Type="Self.Experience" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Experience">
+              <PropertyRef Name="IDExperience" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDExperience" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_FamilyStatus">
+          <End Role="FamilyStatus" Type="Self.FamilyStatus" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FamilyStatus">
+              <PropertyRef Name="IDFamilyStatus" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDFamilyStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_ITSkills">
+          <End Role="ITSkills" Type="Self.ITSkills" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ITSkills">
+              <PropertyRef Name="IDITSkills" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDITSkills" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Learning">
+          <End Role="Learning" Type="Self.Learning" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learning">
+              <PropertyRef Name="IDLearning" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDLearning" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Movement">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="IDMovement" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDMovement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_Sex">
+          <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="IDSex" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDSex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guest_WorkPlan">
+          <End Role="WorkPlan" Type="Self.WorkPlan" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkPlan">
+              <PropertyRef Name="IDWorkPlan" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="IDWorkPlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITSkills_Proficiency">
+          <End Role="Proficiency" Type="Self.Proficiency" Multiplicity="0..1" />
+          <End Role="ITSkills" Type="Self.ITSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proficiency">
+              <PropertyRef Name="IDProficiency" />
+            </Principal>
+            <Dependent Role="ITSkills">
+              <PropertyRef Name="IDProficiency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdditionalInfo" EntityType="Self.AdditionalInfo" />
+          <EntitySet Name="Busyness" EntityType="Self.Busyness" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="CousersAndTrainings" EntityType="Self.CousersAndTrainings" />
+          <EntitySet Name="Education" EntityType="Self.Education" />
+          <EntitySet Name="EducationForm" EntityType="Self.EducationForm" />
+          <EntitySet Name="Experience" EntityType="Self.Experience" />
+          <EntitySet Name="FamilyStatus" EntityType="Self.FamilyStatus" />
+          <EntitySet Name="Guest" EntityType="Self.Guest" />
+          <EntitySet Name="ITSkills" EntityType="Self.ITSkills" />
+          <EntitySet Name="Learning" EntityType="Self.Learning" />
+          <EntitySet Name="Movement" EntityType="Self.Movement" />
+          <EntitySet Name="Proficiency" EntityType="Self.Proficiency" />
+          <EntitySet Name="Sex" EntityType="Self.Sex" />
+          <EntitySet Name="WorkPlan" EntityType="Self.WorkPlan" />
+          <EntitySet Name="YearOfGraduation" EntityType="Self.YearOfGraduation" />
+          <AssociationSet Name="FK_AdditionalInfo_Categories" Association="Self.FK_AdditionalInfo_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="AdditionalInfo" EntitySet="AdditionalInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_AdditionalInfo" Association="Self.FK_Guest_AdditionalInfo">
+            <End Role="AdditionalInfo" EntitySet="AdditionalInfo" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Busyness" Association="Self.FK_Guest_Busyness">
+            <End Role="Busyness" EntitySet="Busyness" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CousersAndTrainings_YearOfGraduation" Association="Self.FK_CousersAndTrainings_YearOfGraduation">
+            <End Role="YearOfGraduation" EntitySet="YearOfGraduation" />
+            <End Role="CousersAndTrainings" EntitySet="CousersAndTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_CousersAndTrainings" Association="Self.FK_Guest_CousersAndTrainings">
+            <End Role="CousersAndTrainings" EntitySet="CousersAndTrainings" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Education_YearOfGraduation" Association="Self.FK_Education_YearOfGraduation">
+            <End Role="YearOfGraduation" EntitySet="YearOfGraduation" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EduInfo_EducationForm" Association="Self.FK_EduInfo_EducationForm">
+            <End Role="EducationForm" EntitySet="EducationForm" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Education" Association="Self.FK_Guest_Education">
+            <End Role="Education" EntitySet="Education" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Experience" Association="Self.FK_Guest_Experience">
+            <End Role="Experience" EntitySet="Experience" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_FamilyStatus" Association="Self.FK_Guest_FamilyStatus">
+            <End Role="FamilyStatus" EntitySet="FamilyStatus" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_ITSkills" Association="Self.FK_Guest_ITSkills">
+            <End Role="ITSkills" EntitySet="ITSkills" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Learning" Association="Self.FK_Guest_Learning">
+            <End Role="Learning" EntitySet="Learning" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Movement" Association="Self.FK_Guest_Movement">
+            <End Role="Movement" EntitySet="Movement" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_Sex" Association="Self.FK_Guest_Sex">
+            <End Role="Sex" EntitySet="Sex" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guest_WorkPlan" Association="Self.FK_Guest_WorkPlan">
+            <End Role="WorkPlan" EntitySet="WorkPlan" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITSkills_Proficiency" Association="Self.FK_ITSkills_Proficiency">
+            <End Role="Proficiency" EntitySet="Proficiency" />
+            <End Role="ITSkills" EntitySet="ITSkills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CVResumeDBModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AdditionalInfo">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.AdditionalInfo">
+              <MappingFragment StoreEntitySet="AdditionalInfo">
+                <ScalarProperty Name="IDAdditionalInfo" ColumnName="IDAdditionalInfo" />
+                <ScalarProperty Name="IDCategories" ColumnName="IDCategories" />
+                <ScalarProperty Name="MilitaryService" ColumnName="MilitaryService" />
+                <ScalarProperty Name="Recommendations" ColumnName="Recommendations" />
+                <ScalarProperty Name="Hobby" ColumnName="Hobby" />
+                <ScalarProperty Name="PersonalQualities" ColumnName="PersonalQualities" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Busyness">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Busyness">
+              <MappingFragment StoreEntitySet="Busyness">
+                <ScalarProperty Name="IDBusyness" ColumnName="IDBusyness" />
+                <ScalarProperty Name="Busyness1" ColumnName="Busyness" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="IDCategories" ColumnName="IDCategories" />
+                <ScalarProperty Name="Categories1" ColumnName="Categories" />
+                <ScalarProperty Name="Subcategories" ColumnName="Subcategories" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CousersAndTrainings">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.CousersAndTrainings">
+              <MappingFragment StoreEntitySet="CousersAndTrainings">
+                <ScalarProperty Name="IDCousersAndTrainings" ColumnName="IDCousersAndTrainings" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Institution" ColumnName="Institution" />
+                <ScalarProperty Name="IDYearOfGraduction" ColumnName="IDYearOfGraduction" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Education">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Education">
+              <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="IDEducation" ColumnName="IDEducation" />
+                <ScalarProperty Name="EducationalInstitution" ColumnName="EducationalInstitution" />
+                <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="IDYearOfGraduation" ColumnName="IDYearOfGraduation" />
+                <ScalarProperty Name="IDEducationalForm" ColumnName="IDEducationalForm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EducationForm">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.EducationForm">
+              <MappingFragment StoreEntitySet="EducationForm">
+                <ScalarProperty Name="IDEducationForm" ColumnName="IDEducationForm" />
+                <ScalarProperty Name="EducationForm1" ColumnName="EducationForm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Experience">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Experience">
+              <MappingFragment StoreEntitySet="Experience">
+                <ScalarProperty Name="IDExperience" ColumnName="IDExperience" />
+                <ScalarProperty Name="Hire" ColumnName="Hire" />
+                <ScalarProperty Name="Fire" ColumnName="Fire" />
+                <ScalarProperty Name="Now" ColumnName="Now" />
+                <ScalarProperty Name="LastPost" ColumnName="LastPost" />
+                <ScalarProperty Name="FullEmployment" ColumnName="FullEmployment" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="ResponsibilitiesAndAchievements" ColumnName="ResponsibilitiesAndAchievements" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FamilyStatus">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.FamilyStatus">
+              <MappingFragment StoreEntitySet="FamilyStatus">
+                <ScalarProperty Name="IDFamilyStatus" ColumnName="IDFamilyStatus" />
+                <ScalarProperty Name="FamilyStatus1" ColumnName="FamilyStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Guest">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Guest">
+              <MappingFragment StoreEntitySet="Guest">
+                <ScalarProperty Name="IDGuest" ColumnName="IDGuest" />
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="DesiredSalary" ColumnName="DesiredSalary" />
+                <ScalarProperty Name="IDBusyness" ColumnName="IDBusyness" />
+                <ScalarProperty Name="IDWorkPlan" ColumnName="IDWorkPlan" />
+                <ScalarProperty Name="BusinessTrips" ColumnName="BusinessTrips" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CityOfResidence" ColumnName="CityOfResidence" />
+                <ScalarProperty Name="IDMovement" ColumnName="IDMovement" />
+                <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="IDSex" ColumnName="IDSex" />
+                <ScalarProperty Name="IDFamilyStatus" ColumnName="IDFamilyStatus" />
+                <ScalarProperty Name="Kids" ColumnName="Kids" />
+                <ScalarProperty Name="IDLearning" ColumnName="IDLearning" />
+                <ScalarProperty Name="IDExperience" ColumnName="IDExperience" />
+                <ScalarProperty Name="IDEducation" ColumnName="IDEducation" />
+                <ScalarProperty Name="IDCousersAndTrainings" ColumnName="IDCousersAndTrainings" />
+                <ScalarProperty Name="IDITSkills" ColumnName="IDITSkills" />
+                <ScalarProperty Name="IDAdditionalInfo" ColumnName="IDAdditionalInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ITSkills">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.ITSkills">
+              <MappingFragment StoreEntitySet="ITSkills">
+                <ScalarProperty Name="IDITSkills" ColumnName="IDITSkills" />
+                <ScalarProperty Name="LanguageKnowledge" ColumnName="LanguageKnowledge" />
+                <ScalarProperty Name="Ownership" ColumnName="Ownership" />
+                <ScalarProperty Name="IDProficiency" ColumnName="IDProficiency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Learning">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Learning">
+              <MappingFragment StoreEntitySet="Learning">
+                <ScalarProperty Name="IDLearning" ColumnName="IDLearning" />
+                <ScalarProperty Name="Learning1" ColumnName="Learning" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movement">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Movement">
+              <MappingFragment StoreEntitySet="Movement">
+                <ScalarProperty Name="IDMovement" ColumnName="IDMovement" />
+                <ScalarProperty Name="Movement1" ColumnName="Movement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proficiency">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Proficiency">
+              <MappingFragment StoreEntitySet="Proficiency">
+                <ScalarProperty Name="IDProficiency" ColumnName="IDProficiency" />
+                <ScalarProperty Name="Ability" ColumnName="Ability" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sex">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.Sex">
+              <MappingFragment StoreEntitySet="Sex">
+                <ScalarProperty Name="IDSex" ColumnName="IDSex" />
+                <ScalarProperty Name="Sex1" ColumnName="Sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkPlan">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.WorkPlan">
+              <MappingFragment StoreEntitySet="WorkPlan">
+                <ScalarProperty Name="IDWorkPlan" ColumnName="IDWorkPlan" />
+                <ScalarProperty Name="WorkPlan1" ColumnName="WorkPlan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YearOfGraduation">
+            <EntityTypeMapping TypeName="C.V.ResumeDBModel.YearOfGraduation">
+              <MappingFragment StoreEntitySet="YearOfGraduation">
+                <ScalarProperty Name="IDYearOfGraduation" ColumnName="IDYearOfGraduation" />
+                <ScalarProperty Name="YearOfGraduation1" ColumnName="YearOfGraduation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

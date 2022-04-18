@@ -5,79 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C.V.ResumeWPF"
         mc:Ignorable="d"
-        Title="c.v.resume.net" Height="882.5" Width="595">
+        Title="c.v.resume.net" Height="900" Width="650"
+        WindowStartupLocation ="CenterScreen">
     <Grid Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
-            <RowDefinition Height="268"/>
-            <RowDefinition Height="306"/>
-            <RowDefinition Height="223"/>
+            <RowDefinition Height="797"/>
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="White">
-            <Grid Margin="177 26 177 235" Opacity="0.5">
-                <Separator Background="#000000"/>
-                <Rectangle HorizontalAlignment="Left" Width="4" Height="4" Fill="#000000"  RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="45"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle HorizontalAlignment="Right" Width="4" Height="4" Fill="#000000"  RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="45"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-            </Grid>
-            <Grid Margin="19 0 19 0">
-                <Button Content="&#60;" HorizontalAlignment="Left" FontSize="14" Width="150" BorderThickness="0" Background="White"/>
-                <StackPanel Style="{StaticResource StackPanel}">
-                    <Image Source="\Assets\Images\Logo.png" Width="150" Height="150">
-                        <Image.Effect>
-                            <DropShadowEffect ShadowDepth="4" Direction="270" BlurRadius="2" Opacity="0.35"/>
-                        </Image.Effect>
-                    </Image>
-                </StackPanel>
-                <Button Content="&#62;" HorizontalAlignment="Right" FontSize="14" Width="150" BorderThickness="0" Background="White"/>
-            </Grid>
-            <StackPanel HorizontalAlignment="Center" Margin="0 222 0 0">
-                <TextBlock Text="Logo" FontSize="12" Height="auto"/>
-                <Separator Background="#000000"/>
-            </StackPanel>
-            <Grid Margin="177 246 177 8">
-                <Line VerticalAlignment="Center" X1="242" Stroke="#000000" StrokeThickness="0.5"/>
-                <Rectangle HorizontalAlignment="Center" Fill="#c4c4c4" Width="14" Height="14" Stroke="#000000" StrokeThickness="0.5"/>
-                <Grid Margin="76 0 76 0">
-                    <Rectangle HorizontalAlignment="Left" Fill="#c4c4c4" Width="7" Height="7" Stroke="#000000" StrokeThickness="0.5"/>
-                    <Rectangle HorizontalAlignment="Right" Fill="#c4c4c4" Width="7" Height="7" Stroke="#000000" StrokeThickness="0.5"/>
-                </Grid>
-                <Grid Margin="34 0 34 0">
-                    <Rectangle HorizontalAlignment="Left" Fill="#c4c4c4" Width="4" Height="4" Stroke="#000000" StrokeThickness="0.5"/>
-                    <Rectangle HorizontalAlignment="Right" Fill="#c4c4c4" Width="4" Height="4" Stroke="#000000" StrokeThickness="0.5"/>
-                </Grid>
-            </Grid>
-        </Grid>
-        <Grid Grid.Row="1" Background="#c4c4c4">
-            <StackPanel Style="{StaticResource StackPanel}">
-                <TextBlock Text="The controls will appear here when you enter the page!" TextDecorations="Underline"/>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="2" Background="{StaticResource ColorSecondary50}">
-            <StackPanel Style="{StaticResource StackPanel}">
-                <TextBlock Style="{StaticResource TextBlock_Example}" Text="EXAMPLE            BLOCK" >
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="4" Direction="270" BlurRadius="2" Opacity="0.35"/>
-                    </TextBlock.Effect>
+        <Grid Grid.Row="0" Background="White" Width="595">
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Automatic" Background="#c4c4c4"/>
+            <StackPanel x:Name="OpenningText" Style="{StaticResource StackPanel}" Visibility="Visible">
+                <TextBlock x:Name="Text_1" Text="Hello!" Padding="5" HorizontalAlignment="Center">
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="Text_1" Storyboard.TargetProperty="(TextBlock.Opacity)" From="0.0" To="1.0" Duration="0:0:2.5"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
                 </TextBlock>
+                <Separator Width="50" Margin="5"/>
+                <TextBlock x:Name="Text_2" Text="At the moment, as the person who launched this program, you are very lucky!" Padding="5" HorizontalAlignment="Center">
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="Text_2" Storyboard.TargetProperty="(TextBlock.Opacity)" From="0.0" To="1.0" Duration="0:0:5"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock>
+                <Separator Width="150" Margin="5"/>
+                <TextBlock x:Name="Text_3" Text="Since this time you decided that you need to make your personal resume for a new position." Padding="5" HorizontalAlignment="Center">
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="Text_3" Storyboard.TargetProperty="(TextBlock.Opacity)" From="0.0" To="1.0" Duration="0:0:7.5"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock>
+                <Separator Width="50" Margin="5"/>
+                <Button x:Name="OpenningButton" Content="Let's go!" Width="50" BorderThickness="0" Margin="5" Click="OpenningButton_Click">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="OpenningButton" Storyboard.TargetProperty="(TextBlock.Opacity)" From="0.0" To="1.0" Duration="0:0:10"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
             </StackPanel>
-            <Image Source="\Assets\Images\Example.png" Margin="261,22,195,22">
-                <Image.Effect>
-                    <DropShadowEffect ShadowDepth="4" Direction="270" BlurRadius="5" Opacity="0.35"/>
-                </Image.Effect>
-            </Image>
         </Grid>
-        <Grid Grid.Row="3" Background="{StaticResource ColorSecondary20}">
+        <Grid Grid.Row="1" Background="{StaticResource ColorSecondary20}">
+            <Button x:Name="PreviousButton" Content="&#60;" Style="{StaticResource SwitchButton}" HorizontalAlignment="Left" Click="PreviousButton_Click" Visibility="Hidden"/>
             <StackPanel Style="{StaticResource StackPanel}">
-                <TextBlock Text="@C.V.Resume.net" FontSize="8"/>
+                <TextBlock Text="@c.v.resume.net" FontSize="8"/>
             </StackPanel>
+            <Button x:Name="SubsequentButton" Content="&#62;" Style="{StaticResource SwitchButton}" HorizontalAlignment="Right" Click="SubsequentButton_Click" Visibility="Hidden"/>
         </Grid>
     </Grid>
 </Window> 

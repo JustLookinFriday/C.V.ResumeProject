@@ -25,7 +25,7 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel>
-                    <DatePicker x:Name="Birhday_DPicker" Tag="Birhday" Style="{StaticResource CustomDPicker}"/>
+                    <DatePicker x:Name="Birthday_DPicker" Tag="Birhday" Style="{StaticResource CustomDPicker}"/>
                     <ComboBox x:Name="Sex_CBox" Tag="Sex" Style="{StaticResource CustomCBox}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>

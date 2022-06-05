@@ -95,7 +95,7 @@ namespace C.V.ResumeWPF.View
                         CityOfResidence = ResCity_TBox.Text,
                         IDMovement = (int)Movement_CBox.SelectedValue,
                         Citizenship = Citiz_TBox.Text,
-                        Birthday = Birhday_DPicker.SelectedDate.Value,
+                        Birthday = Birthday_DPicker.SelectedDate.Value,
                         IDSex = (int)Sex_CBox.SelectedValue,
                         IDFamilyStatus = (int)FamilyStatus_CBox.SelectedValue,
                         Kids = (bool)Kids_ChBox.IsChecked,
@@ -116,8 +116,6 @@ namespace C.V.ResumeWPF.View
 
         private void EditBaseButton_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            PersonalInfoPage personal = btn.DataContext as PersonalInfoPage;
             NavigationService.Navigate(new PersonalInfoUpdatePage());
         }
 

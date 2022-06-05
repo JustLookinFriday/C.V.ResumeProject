@@ -23,23 +23,15 @@ namespace C.V.ResumeWPF.View.UpdateView
     {
         //Подключение к базе
         Core db = new Core();
+
+        List<ITSkills> arraySkills;
+
         public ForeignLanguagesAndComputerSkillsUpdatePage()
         {
             InitializeComponent();
-        }
-        private void ExpButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (OtherOwn_TBox.Visibility == Visibility.Collapsed)
-            {
-                ExpButton.Content = "Click here to hidden expand";
-                OtherOwn_TBox.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                ExpButton.Content = "Click here to expand";
-                OtherOwn_TBox.ClearValue(TextBox.TextProperty);
-                OtherOwn_TBox.Visibility = Visibility.Collapsed;
-            }
+
+            arraySkills = db.context.ITSkills.ToList();
+            UpdateGrid.DataContext = arraySkills;
         }
 
         private void SpecialButton_Click(object sender, RoutedEventArgs e)
@@ -47,6 +39,7 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Collapsed;
             SpecialButton.Visibility = Visibility.Hidden;
             AddBaseButton.Visibility = Visibility.Visible;
+            BackButton.Visibility = Visibility.Visible;
             ReturnSpecialButton.Visibility = Visibility.Visible;
         }
 
@@ -68,6 +61,7 @@ namespace C.V.ResumeWPF.View.UpdateView
                 db.context.ITSkills.Add(skills);
                 db.context.SaveChanges();
                 MessageBox.Show("I'M PROUD OF YOU THAT YOU WERE ABLE TO FILL OUT EVERYTHING CORRECTLY AND PRESS THIS FUCKING ENGLISH BUTTON", "YOU DID IT!", MessageBoxButton.OK, MessageBoxImage.Information);
+                NavigationService.GoBack();
             }
             catch
             {
@@ -80,19 +74,25 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Visible;
             SpecialButton.Visibility = Visibility.Visible;
             AddBaseButton.Visibility = Visibility.Hidden;
+            BackButton.Visibility = Visibility.Hidden;
             ReturnSpecialButton.Visibility = Visibility.Hidden;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is TextBox tBox)
-            {
-                tBox.Text = new string(tBox.Text.Where(ch => (ch >= '0' && ch <= '5')).ToArray());
-            }
-            else
-            {
-                MessageBox.Show("Are you a fool? Do you really not understand at all what is written in black and gray? Damn, I thought you were smarter than my mom..", "You're my cute piece of shit:3", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            NavigationService.GoBack();
         }
+
+        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    if (sender is TextBox tBox)
+        //    {
+        //        tBox.Text = new string(tBox.Text.Where(ch => (ch >= '0' && ch <= '5')).ToArray());
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Are you a fool? Do you really not understand at all what is written in black and gray? Damn, I thought you were smarter than my mom..", "You're my cute piece of shit:3", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //    }
+        //}
     }
 }

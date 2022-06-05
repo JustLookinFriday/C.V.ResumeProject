@@ -121,7 +121,7 @@
     <Compile Include="Model\MovementTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ParticalClasses\HelpImageClass.cs" />
+    <Compile Include="Model\ParticalClasses\BasicInfo.cs" />
     <Compile Include="Model\PersonalInfo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -328,9 +328,6 @@
     <Resource Include="Assets\Images\WCalendar.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Images\SelectedImages\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Model\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -341,6 +338,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\SelectedImages\03zCCKvSQ4M.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

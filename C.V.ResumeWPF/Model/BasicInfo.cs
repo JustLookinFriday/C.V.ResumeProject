@@ -32,7 +32,6 @@ namespace C.V.ResumeWPF.Model
         public bool BusinessTrips { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-
     
         public virtual BusynessTable BusynessTable { get; set; }
         public virtual WorkPlanTable WorkPlanTable { get; set; }

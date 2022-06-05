@@ -26,20 +26,19 @@ namespace C.V.ResumeWPF.View.UpdateView
         //Вывод страниц и подключение к базе
         Core db = new Core();
 
-        BasicInfo currentItem;
+        List<BasicInfo> arrayBasic;
 
         List<BusynessTable> arrayBusyness;
         List<WorkPlanTable> arrayWorkPlan;
 
         string AddImage;
 
-        public BasicInfoUpdatePage(ResumeEntities context, BasicInfo basicInfo)
+        public BasicInfoUpdatePage()
         {
             InitializeComponent();
 
-            currentItem = basicInfo;
-            this.db.context = context;
-            this.DataContext = currentItem;
+            arrayBasic = db.context.BasicInfo.ToList();
+            UpdateGrid.DataContext = arrayBasic;
 
             //Вывод таблицы BusynessTable
             arrayBusyness = db.context.BusynessTable.ToList();
@@ -81,6 +80,7 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Collapsed;
             SpecialButton.Visibility = Visibility.Hidden;
             AddBaseButton.Visibility = Visibility.Visible;
+            BackButton.Visibility = Visibility.Visible;
             ReturnSpecialButton.Visibility = Visibility.Visible;
         }
 
@@ -111,6 +111,7 @@ namespace C.V.ResumeWPF.View.UpdateView
                     db.context.BasicInfo.Add(basic);
                     db.context.SaveChanges();
                     MessageBox.Show("I'M PROUD OF YOU THAT YOU WERE ABLE TO FILL OUT EVERYTHING CORRECTLY AND PRESS THIS FUCKING ENGLISH BUTTON", "YOU DID IT!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.GoBack();
                 }
                 catch
                 {
@@ -124,7 +125,13 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Visible;
             SpecialButton.Visibility = Visibility.Visible;
             AddBaseButton.Visibility = Visibility.Hidden;
+            BackButton.Visibility = Visibility.Hidden;
             ReturnSpecialButton.Visibility = Visibility.Hidden;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

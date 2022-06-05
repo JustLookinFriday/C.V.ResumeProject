@@ -85,8 +85,6 @@ namespace C.V.ResumeWPF.View
 
         private void EditBaseButton_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            ForeignLanguagesAndComputerSkillsPage skillsPage = btn.DataContext as ForeignLanguagesAndComputerSkillsPage;
             NavigationService.Navigate(new ForeignLanguagesAndComputerSkillsUpdatePage());
         }
 

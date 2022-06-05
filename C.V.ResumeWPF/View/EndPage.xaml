@@ -10,7 +10,7 @@
       d:DesignHeight="797" d:DesignWidth="595"
       Title="End">
     <Grid x:Name="OutputGrid" Background="{StaticResource ColorSecondary40}" SnapsToDevicePixels="True">
-        <StackPanel x:Name="EndingSPanel" Style="{StaticResource SP_Alignment}">
+        <StackPanel x:Name="EndingSPanel" Style="{StaticResource SP_Alignment}" Visibility="Visible">
             <Label Content="If this is your ID, then confirm it by clicking on the button!"  FontFamily="{StaticResource QRegular}"/>
             <Separator/>
             <DockPanel LastChildFill="False" HorizontalAlignment="Center" Margin="15">
@@ -44,7 +44,7 @@
                     <Grid Margin="45 45 45 15">
                         <Border Width="135" Height="135" HorizontalAlignment="Left">
                             <Border.Background>
-                                <ImageBrush ImageSource="{Binding ImagePath}" Stretch="UniformToFill"/>
+                                <ImageBrush ImageSource="{Binding BasicInfo.ImagePath}" Stretch="UniformToFill"/>
                             </Border.Background>
                         </Border>
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="215">

@@ -118,7 +118,7 @@ namespace C.V.ResumeWPF.View
 
         public void EditBaseButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            NavigationService.Navigate(new BasicInfoUpdatePage());
         }
 
         private void ReturnSpecialButton_Click(object sender, RoutedEventArgs e)

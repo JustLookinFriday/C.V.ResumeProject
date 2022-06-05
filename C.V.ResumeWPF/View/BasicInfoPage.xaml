@@ -19,9 +19,9 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="45 19 45 0">
                 <StackPanel HorizontalAlignment="Left">
-                    <TextBox x:Name="Surname_TBox" Text="{Binding Surname}" Tag=".Surname" Style="{StaticResource RequiredTBox_292}"/>
-                    <TextBox x:Name="Name_TBox" Text="{Binding Name}" Tag=".Name" Style="{StaticResource RequiredTBox_292}"/>
-                    <TextBox x:Name="Patronymic_TBox" Text="{Binding Patronymic}" Tag="Patronymic" Style="{StaticResource Not_NecessaryTBox_292}"/>
+                    <TextBox x:Name="Surname_TBox" Tag=".Surname" Style="{StaticResource RequiredTBox_292}"/>
+                    <TextBox x:Name="Name_TBox" Tag=".Name" Style="{StaticResource RequiredTBox_292}"/>
+                    <TextBox x:Name="Patronymic_TBox" Tag="Patronymic" Style="{StaticResource Not_NecessaryTBox_292}"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right">
                     <Separator Width="40" Background="#000000"/>
@@ -35,23 +35,23 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel>
-                    <TextBox x:Name="Post_TBox" Text="{Binding Post}" Tag="Post" Style="{StaticResource Not_NecessaryTBox_505}"/>
-                    <TextBox x:Name="Sal_TBox" Text="{Binding DesiredSalary}" Tag=".Desired salary" Style="{StaticResource RequiredTBox_292}"/>
+                    <TextBox x:Name="Post_TBox" Tag="Post" Style="{StaticResource Not_NecessaryTBox_505}"/>
+                    <TextBox x:Name="Sal_TBox" Tag=".Desired salary" Style="{StaticResource RequiredTBox_292}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="2">
                 <StackPanel>
-                    <ComboBox x:Name="Busyness_CBox" SelectedValue="{Binding Busyness}" Tag="Busyness" Style="{StaticResource CustomCBox}"/>
-                    <ComboBox x:Name="WorkPlan_CBox" SelectedValue="{Binding WorkPlan}" Tag="Work plan" Style="{StaticResource CustomCBox}"/>
-                    <CheckBox x:Name="Trips_ChBox" IsChecked="{Binding BusinessTrips}" Content="Business trips?" Style="{StaticResource CustomChBox}"/>
+                    <ComboBox x:Name="Busyness_CBox" Tag="Busyness" Style="{StaticResource CustomCBox}"/>
+                    <ComboBox x:Name="WorkPlan_CBox" Tag="Work plan" Style="{StaticResource CustomCBox}"/>
+                    <CheckBox x:Name="Trips_ChBox" Content="Business trips?" Style="{StaticResource CustomChBox}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="3">
                 <StackPanel>
-                    <TextBox x:Name="Phone_TBox" Text="{Binding Phone}" Tag=".Phone" Style="{StaticResource RequiredTBox_292}"/>
-                    <TextBox x:Name="Email_TBox" Text="{Binding Email}" Tag=".Email" Style="{StaticResource RequiredTBox_292}"/>
+                    <TextBox x:Name="Phone_TBox" Tag=".Phone" Style="{StaticResource RequiredTBox_292}"/>
+                    <TextBox x:Name="Email_TBox" Tag=".Email" Style="{StaticResource RequiredTBox_292}"/>
                 </StackPanel>
             </Grid>
         </Grid>

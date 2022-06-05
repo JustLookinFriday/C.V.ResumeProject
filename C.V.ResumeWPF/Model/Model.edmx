@@ -71,7 +71,7 @@
           <Key>
             <PropertyRef Name="IDEducation" />
           </Key>
-          <Property Name="IDEducation" Type="int" Nullable="false" />
+          <Property Name="IDEducation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EducationalInstitution" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Faculty" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Specialization" Type="nvarchar" MaxLength="45" />
@@ -581,7 +581,7 @@
           <Key>
             <PropertyRef Name="IDEducation" />
           </Key>
-          <Property Name="IDEducation" Type="Int32" Nullable="false" />
+          <Property Name="IDEducation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EducationalInstitution" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Faculty" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Specialization" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />

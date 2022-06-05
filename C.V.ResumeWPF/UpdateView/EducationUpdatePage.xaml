@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="797" d:DesignWidth="595"
       Title="EducationUpdatePage">
-    <Grid Background="{StaticResource ColorSecondary40}">
+    <Grid x:Name="UpdateGrid" Background="{StaticResource ColorSecondary40}">
         <Grid Margin="0 19 0 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -16,16 +16,16 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel>
-                    <TextBox x:Name="EducationalInstitution_TBox" Tag=".Educational institution" Style="{StaticResource RequiredTBox_505}"/>
-                    <TextBox x:Name="Faculty_CBox" Tag=".Faculty" Style="{StaticResource RequiredTBox_505}"/>
+                    <TextBox x:Name="EducationalInstitution_TBox" Text="{Binding EducationalInstitution}" Tag=".Educational institution" Style="{StaticResource RequiredTBox_505}"/>
+                    <TextBox x:Name="Faculty_CBox" Tag=".Faculty" Text="{Binding Faculty}" Style="{StaticResource RequiredTBox_505}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel>
-                    <TextBox x:Name="Specialization_TBox" Tag="Specialization" Style="{StaticResource Not_NecessaryTBox_505}"/>
-                    <ComboBox x:Name="YearOfGraduation_CBox" Tag="Year of graduation" Style="{StaticResource CustomCBox}"/>
-                    <ComboBox x:Name="EducationForm_CBox" Tag="Education form" Style="{StaticResource CustomCBox}"/>
+                    <TextBox x:Name="Specialization_TBox" Text="{Binding Specialization}" Tag="Specialization" Style="{StaticResource Not_NecessaryTBox_505}"/>
+                    <ComboBox x:Name="YearOfGraduation_CBox" SelectedValuePath="{Binding YearOfGraduation}" Tag="Year of graduation" Style="{StaticResource CustomCBox}"/>
+                    <ComboBox x:Name="EducationForm_CBox" SelectedValuePath="{Binding EducationForm}" Tag="Education form" Style="{StaticResource CustomCBox}"/>
                 </StackPanel>
             </Grid>
         </Grid>
@@ -35,10 +35,12 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="SpecialButton" Grid.ColumnSpan="2" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
+                <Button x:Name="SpecialButton" Grid.Column="1" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
                 <Button x:Name="AddBaseButton" Grid.Column="0" Content="Add" Style="{StaticResource  BaseButtons}" Click="AddBaseButton_Click"/>
-                <Button x:Name="ReturnSpecialButton" Grid.Column="1" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
+                <Button x:Name="BackButton" Grid.Column="1" Content="Back" Style="{StaticResource  BaseButtons}" Click="BackButton_Click"/>
+                <Button x:Name="ReturnSpecialButton" Grid.Column="2" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
             </Grid>
         </Grid>
     </Grid>

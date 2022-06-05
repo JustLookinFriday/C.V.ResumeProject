@@ -24,6 +24,8 @@ namespace C.V.ResumeWPF.View.UpdateView
         //Вывод страниц и подключение к базе
         Core db = new Core();
 
+        List<PersonalInfo> arrayPersonal;
+
         List<MovementTable> arrayMovementTable;
         List<SexTable> arraySexTable;
         List<FamilyStatusTable> arrayFamilyStatusTable;
@@ -32,6 +34,9 @@ namespace C.V.ResumeWPF.View.UpdateView
         public PersonalInfoUpdatePage()
         {
             InitializeComponent();
+
+            arrayPersonal = db.context.PersonalInfo.ToList();
+            UpdateGrid.DataContext = arrayPersonal;
 
             //Вывод таблицы MovementTable
             arrayMovementTable = db.context.MovementTable.ToList();
@@ -71,7 +76,7 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Collapsed;
             SpecialButton.Visibility = Visibility.Hidden;
             AddBaseButton.Visibility = Visibility.Visible;
-            //BackButton.Visibility = Visibility.Visible;
+            BackButton.Visibility = Visibility.Visible;
             ReturnSpecialButton.Visibility = Visibility.Visible;
         }
 
@@ -90,7 +95,7 @@ namespace C.V.ResumeWPF.View.UpdateView
                         CityOfResidence = ResCity_TBox.Text,
                         IDMovement = (int)Movement_CBox.SelectedValue,
                         Citizenship = Citiz_TBox.Text,
-                        Birthday = Birhday_DPicker.SelectedDate.Value,
+                        Birthday = Birthday_DPicker.SelectedDate.Value,
                         IDSex = (int)Sex_CBox.SelectedValue,
                         IDFamilyStatus = (int)FamilyStatus_CBox.SelectedValue,
                         Kids = (bool)Kids_ChBox.IsChecked,
@@ -100,6 +105,7 @@ namespace C.V.ResumeWPF.View.UpdateView
                     db.context.PersonalInfo.Add(personal);
                     db.context.SaveChanges();
                     MessageBox.Show("I'M PROUD OF YOU THAT YOU WERE ABLE TO FILL OUT EVERYTHING CORRECTLY AND PRESS THIS FUCKING ENGLISH BUTTON", "YOU DID IT!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.GoBack();
                 }
                 catch
                 {
@@ -114,8 +120,13 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Visible;
             SpecialButton.Visibility = Visibility.Visible;
             AddBaseButton.Visibility = Visibility.Hidden;
-            //BackButton.Visibility = Visibility.Hidden;
+            BackButton.Visibility = Visibility.Hidden;
             ReturnSpecialButton.Visibility = Visibility.Hidden;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

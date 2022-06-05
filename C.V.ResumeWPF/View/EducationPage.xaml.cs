@@ -92,8 +92,6 @@ namespace C.V.ResumeWPF.View
 
         private void EditBaseButton_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            Education education = btn.DataContext as Education;
             NavigationService.Navigate(new EducationUpdatePage());
         }
 

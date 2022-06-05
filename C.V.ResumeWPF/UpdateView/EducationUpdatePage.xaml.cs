@@ -24,11 +24,16 @@ namespace C.V.ResumeWPF.View.UpdateView
         //Вывод страниц и подключение к базе
         Core db = new Core();
 
+        List<Education> arrayEdu;
+
         List<YearOfGraduationTable> arrayYearOfGraduation;
         List<EducationFormTable> arrayEducationForm;
         public EducationUpdatePage()
         {
             InitializeComponent();
+
+            arrayEdu = db.context.Education.ToList();
+            UpdateGrid.DataContext = arrayEdu;
 
             //Вывод таблицы YearOfGraduationTable
             arrayYearOfGraduation = db.context.YearOfGraduationTable.ToList();
@@ -52,6 +57,7 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Collapsed;
             SpecialButton.Visibility = Visibility.Hidden;
             AddBaseButton.Visibility = Visibility.Visible;
+            BackButton.Visibility = Visibility.Visible;
             ReturnSpecialButton.Visibility = Visibility.Visible;
         }
 
@@ -75,8 +81,8 @@ namespace C.V.ResumeWPF.View.UpdateView
                     };
                     db.context.Education.Add(education);
                     db.context.SaveChanges();
-
                     MessageBox.Show("I'M PROUD OF YOU THAT YOU WERE ABLE TO FILL OUT EVERYTHING CORRECTLY AND PRESS THIS FUCKING ENGLISH BUTTON", "YOU DID IT!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.GoBack();
                 }
                 catch
                 {
@@ -90,7 +96,13 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Visible;
             SpecialButton.Visibility = Visibility.Visible;
             AddBaseButton.Visibility = Visibility.Hidden;
+            BackButton.Visibility = Visibility.Hidden;
             ReturnSpecialButton.Visibility = Visibility.Hidden;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

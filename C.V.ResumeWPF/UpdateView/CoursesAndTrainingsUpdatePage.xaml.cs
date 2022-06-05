@@ -24,11 +24,16 @@ namespace C.V.ResumeWPF.View.UpdateView
         //Вывод страниц и подключение к базе
         Core db = new Core();
 
+        List<CousersAndTrainings> arrayCourses;
+
         List<YearOfGraduationTable> arrayYearOfGraduation;
 
         public CoursesAndTrainingsUpdatePage()
         {
             InitializeComponent();
+
+            arrayCourses = db.context.CousersAndTrainings.ToList();
+            UpdateGrid.DataContext = arrayCourses;
 
             //Вывод таблицы YearOfGraduationTable
             arrayYearOfGraduation = db.context.YearOfGraduationTable.ToList();
@@ -44,6 +49,7 @@ namespace C.V.ResumeWPF.View.UpdateView
             Separator.Visibility = Visibility.Collapsed;
             SpecialButton.Visibility = Visibility.Hidden;
             AddBaseButton.Visibility = Visibility.Visible;
+            BackButton.Visibility = Visibility.Visible;
             ReturnSpecialButton.Visibility = Visibility.Visible;
         }
 
@@ -67,6 +73,7 @@ namespace C.V.ResumeWPF.View.UpdateView
                     db.context.CousersAndTrainings.Add(cousers);
                     db.context.SaveChanges();
                     MessageBox.Show("I'M PROUD OF YOU THAT YOU WERE ABLE TO FILL OUT EVERYTHING CORRECTLY AND PRESS THIS FUCKING ENGLISH BUTTON", "YOU DID IT!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.GoBack();
                 }
                 catch
                 {
@@ -75,17 +82,18 @@ namespace C.V.ResumeWPF.View.UpdateView
             }
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }
-
         private void ReturnSpecialButton_Click(object sender, RoutedEventArgs e)
         {
             Separator.Visibility = Visibility.Visible;
             SpecialButton.Visibility = Visibility.Visible;
             AddBaseButton.Visibility = Visibility.Hidden;
+            BackButton.Visibility = Visibility.Hidden;
             ReturnSpecialButton.Visibility = Visibility.Hidden;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

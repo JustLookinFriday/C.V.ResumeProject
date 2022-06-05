@@ -26,9 +26,11 @@ namespace C.V.ResumeWPF.View
         Core db = new Core();
 
         List<Guest> arrayGuests;
+
         public EndPage()
         {
             InitializeComponent();
+
             arrayGuests = db.context.Guest.ToList();
             OutputGrid.DataContext = arrayGuests;
         }
@@ -105,6 +107,7 @@ namespace C.V.ResumeWPF.View
                     db.context.Guest.Add(guest);
                     db.context.SaveChanges();
                     MessageBox.Show("I'M PROUD OF YOU THAT YOU WERE ABLE TO FILL OUT EVERYTHING CORRECTLY AND PRESS THIS FUCKING ENGLISH BUTTON", "YOU DID IT!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.Refresh();
                 }
                 catch
                 {
@@ -112,7 +115,5 @@ namespace C.V.ResumeWPF.View
                 }
             }
         }
-
-        
     }
 }

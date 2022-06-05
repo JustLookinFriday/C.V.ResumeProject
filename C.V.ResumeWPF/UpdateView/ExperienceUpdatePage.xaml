@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="797" d:DesignWidth="595"
       Title="ExperienceUpdatePage">
-    <Grid Background="{StaticResource ColorSecondary40}" x:Name="ParentGrid">
+    <Grid x:Name="UpdateGrid" Background="{StaticResource ColorSecondary40}">
         <Grid Grid.Row="0" Margin="0 19 0 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -17,23 +17,22 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel>
-                    <DatePicker x:Name="Hire_DPicker" Tag="Hire" Style="{StaticResource CustomDPicker}"/>
-                    <DatePicker x:Name="Fire_DPicker" Tag="Fire" Style="{StaticResource CustomDPicker}"/>
-                    <CheckBox x:Name="Now_ChBox" Content="Now?" Style="{StaticResource CustomChBox}" Click="Now_ChBox_Click"/>
+                    <DatePicker x:Name="Hire_DPicker" SelectedDate="{Binding Hire}" Tag="Hire" Style="{StaticResource CustomDPicker}"/>
+                    <DatePicker x:Name="Fire_DPicker" SelectedDate="{Binding Fire}" Tag="Fire" Style="{StaticResource CustomDPicker}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel>
-                    <TextBox x:Name="LastPost_TBox" Tag=".Last post" Style="{StaticResource RequiredTBox_505}"/>
-                    <CheckBox x:Name="FullEmployment_ChBox" Content="Full employment?" Style="{StaticResource CustomChBox}"/>
-                    <TextBox x:Name="Organization_TBox" Tag=".Organization" Style="{StaticResource RequiredTBox_505}"/>
+                    <TextBox x:Name="LastPost_TBox" Text="{Binding LastPost}" Tag=".Last post" Style="{StaticResource RequiredTBox_505}"/>
+                    <CheckBox x:Name="FullEmployment_ChBox" IsChecked="{Binding FullEmployment}" Content="Full employment?" Style="{StaticResource CustomChBox}"/>
+                    <TextBox x:Name="Organization_TBox" Text="{Binding Organization}" Tag=".Organization" Style="{StaticResource RequiredTBox_505}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="2">
                 <StackPanel>
-                    <TextBox x:Name="ResAndAch_TBox" Tag="Responsibilities and achievements" Style="{StaticResource Not_NecessaryTBox_505_88}"/>
+                    <TextBox x:Name="ResAndAch_TBox" Text="{Binding ResponsibilitiesAndAchievements}" Tag="Responsibilities and achievements" Style="{StaticResource Not_NecessaryTBox_505_88}"/>
                 </StackPanel>
             </Grid>
         </Grid>
@@ -43,10 +42,12 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="SpecialButton" Grid.ColumnSpan="2" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
+                <Button x:Name="SpecialButton" Grid.Column="1" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
                 <Button x:Name="AddBaseButton" Grid.Column="0" Content="Add" Style="{StaticResource  BaseButtons}" Click="AddBaseButton_Click"/>
-                <Button x:Name="ReturnSpecialButton" Grid.Column="1" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
+                <Button x:Name="BackButton" Grid.Column="1" Content="Back" Style="{StaticResource  BaseButtons}" Click="BackButton_Click"/>
+                <Button x:Name="ReturnSpecialButton" Grid.Column="2" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
             </Grid>
         </Grid>
     </Grid>

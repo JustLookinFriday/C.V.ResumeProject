@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 namespace C.V.ResumeUnitTest
 {
     [TestClass]
-    public class InputDataUnitTest
+    public class InputDataUnitTests
     {
         /// <summary>
         /// Проверка на пустую строку

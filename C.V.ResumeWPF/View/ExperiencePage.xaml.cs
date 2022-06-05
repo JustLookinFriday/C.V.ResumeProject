@@ -76,8 +76,6 @@ namespace C.V.ResumeWPF.View
 
         private void EditBaseButton_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            Experience experience = btn.DataContext as Experience;
             NavigationService.Navigate(new ExperienceUpdatePage());
         }
 

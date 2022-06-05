@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="797" d:DesignWidth="595"
       Title="BasicInfoUpdatePage">
-    <Grid Background="{StaticResource ColorSecondary40}">
+    <Grid x:Name="UpdateGrid" Background="{StaticResource ColorSecondary40}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -18,32 +18,32 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="45 19 45 0">
                 <StackPanel HorizontalAlignment="Left">
-                    <TextBox x:Name="Surname_TBox" Text="{Binding BasicInfo.Surname}" Tag=".Surname" Style="{StaticResource RequiredTBox_292}"/>
-                    <TextBox x:Name="Name_TBox" Text="{Binding BasicInfo.Name}" Tag=".Name" Style="{StaticResource RequiredTBox_292}"/>
-                    <TextBox x:Name="Patronymic_TBox" Text="{Binding BasicInfo.Patronymic}" Tag="Patronymic" Style="{StaticResource Not_NecessaryTBox_292}"/>
+                    <TextBox x:Name="Surname_TBox" Text="{Binding Surname}" Tag=".Surname" Style="{StaticResource RequiredTBox_292}"/>
+                    <TextBox x:Name="Name_TBox" Text="{Binding Name}" Tag=".Name" Style="{StaticResource RequiredTBox_292}"/>
+                    <TextBox x:Name="Patronymic_TBox" Text="{Binding Patronymic}" Tag="Patronymic" Style="{StaticResource Not_NecessaryTBox_292}"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right">
                     <Separator Width="40" Background="#000000"/>
                     <TextBlock Text="Pic" HorizontalAlignment="Center" Margin="0 3 0 0"/>
                     <Button x:Name="PicButton" Style="{StaticResource PicButton}" Margin="0 5 0 0" Click="PicButton_Click">
                         <Button.Background>
-                            <ImageBrush x:Name="SelectedPic" ImageSource="{Binding BasicInfo.Pic}" Stretch="UniformToFill"/>
+                            <ImageBrush x:Name="SelectedPic" ImageSource="{Binding ImagePath}" Stretch="UniformToFill"/>
                         </Button.Background>
                     </Button>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel>
-                    <TextBox x:Name="Post_TBox" Text="{Binding BasicInfo.Post}" Tag="Post" Style="{StaticResource Not_NecessaryTBox_505}"/>
-                    <TextBox x:Name="Sal_TBox" Text="{Binding BasicInfo.DesiredSalary}" Tag=".Desired salary" Style="{StaticResource RequiredTBox_292}"/>
+                    <TextBox x:Name="Post_TBox" Text="{Binding Post}" Tag="Post" Style="{StaticResource Not_NecessaryTBox_505}"/>
+                    <TextBox x:Name="Sal_TBox" Text="{Binding DesiredSalary}" Tag=".Desired salary" Style="{StaticResource RequiredTBox_292}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="2">
                 <StackPanel>
-                    <ComboBox x:Name="Busyness_CBox" Text="{Binding Busyness}" Tag="Busyness" Style="{StaticResource CustomCBox}"/>
-                    <ComboBox x:Name="WorkPlan_CBox" Text="{Binding WorkPlan}" Tag="Work plan" Style="{StaticResource CustomCBox}"/>
-                    <CheckBox x:Name="Trips_ChBox" Content="Business trips?" IsChecked="{Binding Trips}" Style="{StaticResource CustomChBox}"/>
+                    <ComboBox x:Name="Busyness_CBox" SelectedValuePath="{Binding Busyness}" Tag="Busyness" Style="{StaticResource CustomCBox}"/>
+                    <ComboBox x:Name="WorkPlan_CBox" SelectedValuePath="{Binding WorkPlan}" Tag="Work plan" Style="{StaticResource CustomCBox}"/>
+                    <CheckBox x:Name="Trips_ChBox" Content="Business trips?" IsChecked="{Binding BusinessTrips}" Style="{StaticResource CustomChBox}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
@@ -60,10 +60,12 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="SpecialButton" Grid.ColumnSpan="2" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
+                <Button x:Name="SpecialButton" Grid.Column="1" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
                 <Button x:Name="AddBaseButton" Grid.Column="0" Content="Add" Style="{StaticResource  BaseButtons}" Click="AddBaseButton_Click"/>
-                <Button x:Name="ReturnSpecialButton" Grid.Column="1" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
+                <Button x:Name="BackButton" Grid.Column="1" Content="Back" Style="{StaticResource  BaseButtons}" Click="BackButton_Click"/>
+                <Button x:Name="ReturnSpecialButton" Grid.Column="2" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
             </Grid>
         </Grid>
     </Grid>

@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="797" d:DesignWidth="595"
       Title="PersonalInfoUpdatePage">
-    <Grid Background="{StaticResource ColorSecondary40}">
+    <Grid x:Name="UpdateGrid" Background="{StaticResource ColorSecondary40}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -17,24 +17,24 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="0 19 0 0">
                 <StackPanel>
-                    <TextBox x:Name="ResCity_TBox" Tag=".City of residence" Style="{StaticResource RequiredTBox_505}"/>
-                    <ComboBox x:Name="Movement_CBox" Tag="Movement" Style="{StaticResource CustomCBox}"/>
-                    <TextBox x:Name="Citiz_TBox" Tag=".Citizenship" Style="{StaticResource RequiredTBox_505}"/>
+                    <TextBox x:Name="ResCity_TBox" Text="{Binding CityOfResidence}" Tag=".City of residence" Style="{StaticResource RequiredTBox_505}"/>
+                    <ComboBox x:Name="Movement_CBox" SelectedValuePath="{Binding Movement}" Tag="Movement" Style="{StaticResource CustomCBox}"/>
+                    <TextBox x:Name="Citiz_TBox" Text="{Binding Citizenship}" Tag=".Citizenship" Style="{StaticResource RequiredTBox_505}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel>
-                    <DatePicker x:Name="Birhday_DPicker" Tag="Birhday" Style="{StaticResource CustomDPicker}"/>
-                    <ComboBox x:Name="Sex_CBox" Tag="Sex" Style="{StaticResource CustomCBox}"/>
+                    <DatePicker x:Name="Birthday_DPicker" SelectedDate="{Binding Birthday}" Tag="Birhday" Style="{StaticResource CustomDPicker}"/>
+                    <ComboBox x:Name="Sex_CBox" SelectedValuePath="{Binding Sex}" Tag="Sex" Style="{StaticResource CustomCBox}"/>
                     <Separator Background="{StaticResource Color50}" Margin="45 26 45 0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="2">
                 <StackPanel>
-                    <ComboBox x:Name="FamilyStatus_CBox" Tag="FamilyStatus" Style="{StaticResource CustomCBox}"/>
-                    <CheckBox x:Name="Kids_ChBox" Content="Kids?" Style="{StaticResource CustomChBox}"/>
-                    <ComboBox x:Name="Learning_CBox" Tag="Learning" Style="{StaticResource CustomCBox}"/>
+                    <ComboBox x:Name="FamilyStatus_CBox" SelectedValuePath="{Binding FamilyStatus}" Tag="FamilyStatus" Style="{StaticResource CustomCBox}"/>
+                    <CheckBox x:Name="Kids_ChBox" IsChecked="{Binding Kids}" Content="Kids?" Style="{StaticResource CustomChBox}"/>
+                    <ComboBox x:Name="Learning_CBox" SelectedValuePath="{Binding Learning}" Tag="Learning" Style="{StaticResource CustomCBox}"/>
                 </StackPanel>
             </Grid>
         </Grid>
@@ -44,10 +44,12 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="SpecialButton" Grid.ColumnSpan="2" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
+                <Button x:Name="SpecialButton" Grid.Column="1" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
                 <Button x:Name="AddBaseButton" Grid.Column="0" Content="Add" Style="{StaticResource  BaseButtons}" Click="AddBaseButton_Click"/>
-                <Button x:Name="ReturnSpecialButton" Grid.Column="1" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
+                <Button x:Name="BackButton" Grid.Column="1" Content="Back" Style="{StaticResource  BaseButtons}" Click="BackButton_Click"/>
+                <Button x:Name="ReturnSpecialButton" Grid.Column="2" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
             </Grid>
         </Grid>
     </Grid>

@@ -91,8 +91,6 @@ namespace C.V.ResumeWPF.View
 
         private void EditBaseButton_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            AdditionalInfo item = btn.DataContext as AdditionalInfo;
             NavigationService.Navigate(new AdditionalInfoUpdatePage());
         }
 

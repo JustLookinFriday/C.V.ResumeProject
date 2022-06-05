@@ -27,8 +27,8 @@ namespace C.V.ResumeWPF.Model
         public int IDYearOfGraduation { get; set; }
         public int IDEducationalForm { get; set; }
     
-        public virtual YearOfGraduation YearOfGraduation { get; set; }
-        public virtual EducationForm EducationForm { get; set; }
+        public virtual YearOfGraduationTable YearOfGraduationTable { get; set; }
+        public virtual EducationFormTable EducationFormTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Guest> Guest { get; set; }
     }

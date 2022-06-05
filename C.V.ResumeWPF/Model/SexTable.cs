@@ -12,18 +12,18 @@ namespace C.V.ResumeWPF.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class WorkPlan
+    public partial class SexTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public WorkPlan()
+        public SexTable()
         {
-            this.Guest = new HashSet<Guest>();
+            this.PersonalInfo = new HashSet<PersonalInfo>();
         }
     
-        public int IDWorkPlan { get; set; }
-        public string WorkPlan1 { get; set; }
+        public int IDSex { get; set; }
+        public string Sex { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Guest> Guest { get; set; }
+        public virtual ICollection<PersonalInfo> PersonalInfo { get; set; }
     }
 }

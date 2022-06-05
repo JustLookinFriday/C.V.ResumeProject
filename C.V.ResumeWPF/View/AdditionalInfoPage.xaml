@@ -8,7 +8,81 @@
       mc:Ignorable="d" 
       d:DesignHeight="797" d:DesignWidth="595"
       Title="AdditionalInfoPage">
-    <Grid>
-        
+    <Grid Background="{StaticResource ColorSecondary40}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0 19 0 0">
+                <CheckBox x:Name="Military_ChBox" Content="Military Service?" Style="{StaticResource CustomChBox}" Padding="0 0 13.5 0"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0 0 0 0">
+                <StackPanel Margin="0 26 0 0">
+                    <TextBlock Text="Driver's license categories:" TextAlignment="Center" FontSize="10" FontFamily="{StaticResource QRegular}"/>
+                    <Grid Margin="181 0 181 0">
+                        <TextBlock Text="Main:" HorizontalAlignment="Left" FontSize="10" FontFamily="{StaticResource QRegular}"/>
+                        <Separator Width="150" Height="1" Margin="0 4 0 0" Background="#c4c4c4"/>
+                        <TextBlock Text="Sub:" HorizontalAlignment="Right" FontSize="10" FontFamily="{StaticResource QRegular}"/>
+                    </Grid>
+                    <Separator Margin="45 5 45 0"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" Margin="45 0 45 0">
+                <StackPanel HorizontalAlignment="Left" Width="277">
+                    <CheckBox x:Name="A_ChBox" Content="A?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="B_ChBox" Content="B?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="BE_ChBox" Content="BE?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="C_ChBox" Content="C?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="CE_ChBox" Content="CE?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="D_ChBox" Content="D?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="DE_ChBox" Content="DE?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="M_ChBox" Content="M?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="TM_ChBox" Content="TM?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <CheckBox x:Name="TB_ChBox" Content="TB?" Style="{StaticResource CustomChBoxFirst}"/>
+                    <Separator Margin="45 26 45 0"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Width="277">
+                    <CheckBox x:Name="A1_ChBox" Content="?A1" Style="{StaticResource CustomChBoxSecond}"/>
+                    <CheckBox x:Name="B1_ChBox" Content="?B1" Style="{StaticResource CustomChBoxSecond}"/>
+                    <CheckBox x:Name="C1_ChBox" Content="?C1" Style="{StaticResource CustomChBoxSecond}"/>
+                    <CheckBox x:Name="C1E_ChBox" Content="?C1E" Style="{StaticResource CustomChBoxSecond}"/>
+                    <CheckBox x:Name="D1_ChBox" Content="?D1" Style="{StaticResource CustomChBoxSecond}"/>
+                    <CheckBox x:Name="D1E_ChBox" Content="?D1E" Style="{StaticResource CustomChBoxSecond}"/>
+                    <TextBox x:Name="Rec_TBox" Tag="Recommendations" Style="{StaticResource Not_NecessaryTBox_277_134}"/>
+                    <Separator Margin="45 26 45 0"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3">
+                <StackPanel>
+                    <TextBox x:Name="Hobby_TBox" Tag="Hobby" Style="{StaticResource Not_NecessaryTBox_505_88}"/>
+                    <TextBox x:Name="Qualities_TBox" Tag="Personal qualities" Style="{StaticResource Not_NecessaryTBox_505_88}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <!--<Grid x:Name="YourIDGrid">
+            <DockPanel LastChildFill="False" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 5 0">
+                <Label Content="Your ID on this page:" FontFamily="{StaticResource QRegular}"/>
+                <TextBlock Text="{Binding IDAdditionalInfo}" FontFamily="{StaticResource QRegular}" VerticalAlignment="Center"/>
+            </DockPanel>
+        </Grid>-->
+        <Grid VerticalAlignment="Bottom" Width="100">
+            <Separator x:Name="Separator" Background="{StaticResource Color50}"/>
+            <Grid Height="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="SpecialButton" Grid.Column="1" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
+                <Button x:Name="AddBaseButton" Grid.Column="0" Content="Add" Style="{StaticResource  BaseButtons}" Click="AddBaseButton_Click"/>
+                <Button x:Name="EditBaseButton" Grid.Column="1" Content="Edit" Style="{StaticResource BaseButtons}" Click="EditBaseButton_Click"/>
+                <Button x:Name="ReturnSpecialButton" Grid.Column="2" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
+            </Grid>
+        </Grid>
     </Grid>
+    
+    
 </Page>

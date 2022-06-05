@@ -12,16 +12,16 @@ namespace C.V.ResumeWPF.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class EducationForm
+    public partial class EducationFormTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EducationForm()
+        public EducationFormTable()
         {
             this.Education = new HashSet<Education>();
         }
     
         public int IDEducationForm { get; set; }
-        public string EducationForm1 { get; set; }
+        public string EducationForm { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Education> Education { get; set; }

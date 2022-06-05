@@ -12,18 +12,18 @@ namespace C.V.ResumeWPF.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Learning
+    public partial class FamilyStatusTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Learning()
+        public FamilyStatusTable()
         {
-            this.Guest = new HashSet<Guest>();
+            this.PersonalInfo = new HashSet<PersonalInfo>();
         }
     
-        public int IDLearning { get; set; }
-        public string Learning1 { get; set; }
+        public int IDFamilyStatus { get; set; }
+        public string FamilyStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Guest> Guest { get; set; }
+        public virtual ICollection<PersonalInfo> PersonalInfo { get; set; }
     }
 }

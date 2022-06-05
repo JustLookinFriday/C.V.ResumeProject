@@ -12,19 +12,21 @@ namespace C.V.ResumeWPF.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Proficiency
+    public partial class YearOfGraduationTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Proficiency()
+        public YearOfGraduationTable()
         {
-            this.ITSkills = new HashSet<ITSkills>();
+            this.CousersAndTrainings = new HashSet<CousersAndTrainings>();
+            this.Education = new HashSet<Education>();
         }
     
-        public int IDProficiency { get; set; }
-        public string Ability { get; set; }
-        public string Other { get; set; }
+        public int IDYearOfGraduation { get; set; }
+        public string YearOfGraduation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ITSkills> ITSkills { get; set; }
+        public virtual ICollection<CousersAndTrainings> CousersAndTrainings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Education> Education { get; set; }
     }
 }

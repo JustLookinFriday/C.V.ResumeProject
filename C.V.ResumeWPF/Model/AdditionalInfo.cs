@@ -21,13 +21,15 @@ namespace C.V.ResumeWPF.Model
         }
     
         public int IDAdditionalInfo { get; set; }
-        public Nullable<int> IDCategories { get; set; }
         public bool MilitaryService { get; set; }
+        public int IDCategories { get; set; }
+        public int IDSubcategories { get; set; }
         public string Recommendations { get; set; }
         public string Hobby { get; set; }
         public string PersonalQualities { get; set; }
     
-        public virtual Categories Categories { get; set; }
+        public virtual CategoriesTable CategoriesTable { get; set; }
+        public virtual SubcategoriesTable SubcategoriesTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Guest> Guest { get; set; }
     }

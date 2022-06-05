@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace C.V.ResumeWPF.Model
 {
-    internal class Core
+    public class Core
     {
-       public Entities context = new Entities();
+       public ResumeEntities context = new ResumeEntities();
     }
 }

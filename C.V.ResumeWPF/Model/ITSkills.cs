@@ -22,11 +22,15 @@ namespace C.V.ResumeWPF.Model
     
         public int IDITSkills { get; set; }
         public string LanguageKnowledge { get; set; }
-        public string Ownership { get; set; }
-        public Nullable<int> IDProficiency { get; set; }
+        public bool Documents { get; set; }
+        public bool Internet { get; set; }
+        public bool Email { get; set; }
+        public bool MSWord { get; set; }
+        public bool MSExcel { get; set; }
+        public bool MSPowerPoint { get; set; }
+        public string Other { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Guest> Guest { get; set; }
-        public virtual Proficiency Proficiency { get; set; }
     }
 }

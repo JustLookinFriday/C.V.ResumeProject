@@ -12,19 +12,18 @@ namespace C.V.ResumeWPF.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Categories
+    public partial class MovementTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categories()
+        public MovementTable()
         {
-            this.AdditionalInfo = new HashSet<AdditionalInfo>();
+            this.PersonalInfo = new HashSet<PersonalInfo>();
         }
     
-        public int IDCategories { get; set; }
-        public string Categories1 { get; set; }
-        public string Subcategories { get; set; }
+        public int IDMovement { get; set; }
+        public string Movement { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AdditionalInfo> AdditionalInfo { get; set; }
+        public virtual ICollection<PersonalInfo> PersonalInfo { get; set; }
     }
 }

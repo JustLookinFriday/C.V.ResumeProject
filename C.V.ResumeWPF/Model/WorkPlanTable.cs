@@ -12,21 +12,18 @@ namespace C.V.ResumeWPF.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class YearOfGraduation
+    public partial class WorkPlanTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public YearOfGraduation()
+        public WorkPlanTable()
         {
-            this.CousersAndTrainings = new HashSet<CousersAndTrainings>();
-            this.Education = new HashSet<Education>();
+            this.BasicInfo = new HashSet<BasicInfo>();
         }
     
-        public int IDYearOfGraduation { get; set; }
-        public System.DateTime YearOfGraduation1 { get; set; }
+        public int IDWorkPlan { get; set; }
+        public string WorkPlan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CousersAndTrainings> CousersAndTrainings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Education> Education { get; set; }
+        public virtual ICollection<BasicInfo> BasicInfo { get; set; }
     }
 }

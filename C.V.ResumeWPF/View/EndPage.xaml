@@ -1,4 +1,5 @@
-﻿<Page Background="White"
+﻿<Page x:Name="PrintPage"
+      Background="White"
       x:Class="C.V.ResumeWPF.View.EndPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,7 +9,361 @@
       mc:Ignorable="d" 
       d:DesignHeight="797" d:DesignWidth="595"
       Title="End">
-    <Grid>
-        
+    <Grid x:Name="OutputGrid" Background="{StaticResource ColorSecondary40}" SnapsToDevicePixels="True">
+        <StackPanel x:Name="EndingSPanel" Style="{StaticResource SP_Alignment}">
+            <Label Content="If this is your ID, then confirm it by clicking on the button!"  FontFamily="{StaticResource QRegular}"/>
+            <Separator/>
+            <DockPanel LastChildFill="False" HorizontalAlignment="Center" Margin="15">
+                <TextBox x:Name="BasicID_TBox" Style="{StaticResource AddIDTBox}"/>
+                <TextBox x:Name="PersonalID_TBox" Style="{StaticResource AddIDTBox}"/>
+                <TextBox x:Name="ExperienceID_TBox" Style="{StaticResource AddIDTBox}"/>
+                <TextBox x:Name="EducationID_TBox" Style="{StaticResource AddIDTBox}"/>
+                <TextBox x:Name="CoursesID_TBox" Style="{StaticResource AddIDTBox}"/>
+                <TextBox x:Name="ITSkillsID_TBox" Style="{StaticResource AddIDTBox}"/>
+                <TextBox x:Name="AdditionalID_TBox" Style="{StaticResource AddIDTBox}"/>
+            </DockPanel>
+            <Separator/>
+            <Button x:Name="AddIDButton" Content="Push" Style="{StaticResource AddIDButton}" Click="AddIDButton_Click"/>
+        </StackPanel>
+        <Grid x:Name="HiddenGrid" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="445"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock Text="BasicInfo" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="35" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 15"/>
+                    <Grid Margin="45 45 45 15">
+                        <Border Width="135" Height="135" HorizontalAlignment="Left">
+                            <Border.Background>
+                                <ImageBrush ImageSource="{Binding ImagePath}" Stretch="UniformToFill"/>
+                            </Border.Background>
+                        </Border>
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="215">
+                            <StackPanel>
+                                <Label Content="S.N.P:" FontFamily="{StaticResource QRegular}"/>
+                                <DockPanel LastChildFill="False">
+                                    <TextBlock Text="{Binding BasicInfo.Surname}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                                    <TextBlock Text="{Binding BasicInfo.Name}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" Margin="5 0 5 0"/>
+                                    <TextBlock Text="{Binding BasicInfo.Patronymic}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                                </DockPanel>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Post:" FontFamily="{StaticResource QRegular}"/>
+                                <TextBlock Text="{Binding BasicInfo.Post}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="City of residence:" FontFamily="{StaticResource QRegular}"/>
+                                <TextBlock Text="{Binding PersonalInfo.CityOfResidence}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                                <TextBlock Text="{Binding PersonalInfo.MovementTable.Movement, StringFormat='Movement: ({0})'}" Background="{StaticResource ColorSecondary75}" Margin="0 5"/>
+                                <TextBlock Text="{Binding BasicInfo.BusinessTrips, StringFormat='Business trips? ({0})'}" Background="{StaticResource ColorSecondary75}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <TextBlock Text="PersonalInfo" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="35" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="45 0 45 0">
+                        <Separator/>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Citizenship:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding PersonalInfo.Citizenship}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Learning:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding PersonalInfo.LearningTable.Learning}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Birthday:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding PersonalInfo.Birthday, StringFormat={}{0:dd/MM/yyyy}}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Sex:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding PersonalInfo.SexTable.Sex}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Family status:" FontFamily="{StaticResource QRegular}"/>
+                            <DockPanel LastChildFill="False">
+                                <TextBlock Text="{Binding PersonalInfo.FamilyStatusTable.FamilyStatus}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                                <TextBlock Text="{Binding PersonalInfo.Kids, StringFormat='Kids? {0}'}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                            </DockPanel>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <TextBlock Text="Experience" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="35" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="45 0 45 0">
+                        <Separator/>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Last post:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding Experience.LastPost}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Organization:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding Experience.Organization}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Hire - Fire:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding Experience.Hire, StringFormat={}{0:dd/MM/yyyy}}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                            <TextBlock Text="{Binding Experience.Fire, StringFormat={}{0:dd/MM/yyyy}}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Responsibilities and achievements:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding Experience.ResponsibilitiesAndAchievements}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <TextBlock Text="Education" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="35" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="45 0 45 0">
+                        <Separator/>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Educational institution:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding Education.EducationalInstitution}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Faculty:" FontFamily="{StaticResource QRegular}"/>
+                            <DockPanel LastChildFill="False">
+                                <TextBlock Text="{Binding Education.Faculty}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                                <TextBlock Text="{Binding Education.Specialization, StringFormat='Specialization: {0}'}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                            </DockPanel>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Year of graduation:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding Education.YearOfGraduationTable.YearOfGraduation}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                            <TextBlock Text="{Binding Education.EducationFormTable.EducationForm, StringFormat='Education form: {0}'}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <TextBlock Text="Courses" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="35" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="45 0 45 0">
+                        <Separator/>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Course:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding CousersAndTrainings.Course}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Institution:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding CousersAndTrainings.Institution}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Year of graduation:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding CousersAndTrainings.YearOfGraduationTable.YearOfGraduation}" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                            <TextBlock Text="{Binding CousersAndTrainings.Duration, StringFormat='Duration: {0}'}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="5">
+                    <TextBlock Text="AdditionalInfo" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="35" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="45 0 45 0">
+                        <Separator/>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Military service:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding AdditionalInfo.MilitaryService}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <StackPanel>
+                            <Label Content="Driver's license categories:" FontFamily="{StaticResource QRegular}"/>
+                            <DockPanel LastChildFill="False">
+                                <Label Content="Main:" FontFamily="{StaticResource QRegular}"/>
+                                <StackPanel>
+                                    <Label Content="A:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.A}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Margin="5 0 5 0">
+                                    <Label Content="B:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.B}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="BE:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.BE}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Margin="5 0 5 0">
+                                    <Label Content="C:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.C}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="CE:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.CE}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Margin="5 0 5 0">
+                                    <Label Content="D:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.D}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="DE:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.DE}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Margin="5 0 5 0">
+                                    <Label Content="M:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.M}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="TM:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.TM}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Margin="5 0 5 0">
+                                    <Label Content="TB:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.CategoriesTable.TB}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DockPanel>
+                            <DockPanel LastChildFill="False">
+                                <Label Content="Sub:" FontFamily="{StaticResource QRegular}"/>
+                                <StackPanel>
+                                    <Label Content="A:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.SubcategoriesTable.A1}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Margin="5 0 5 0">
+                                    <Label Content="A1:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.SubcategoriesTable.A1}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="B1:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.SubcategoriesTable.B1}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Margin="5 0 5 0">
+                                    <Label Content="C1:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.SubcategoriesTable.C1}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="C1E:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.SubcategoriesTable.C1E}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Margin="5 0 5 0">
+                                    <Label Content="D1:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.SubcategoriesTable.D1}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="D1E:" FontFamily="{StaticResource QRegular}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AdditionalInfo.SubcategoriesTable.D1E}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </StackPanel>
+                        <DockPanel LastChildFill="False" Margin="0 3 0 0">
+                            <Label Content="Recommendations:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding AdditionalInfo.Recommendations}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Hobby:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding AdditionalInfo.Hobby}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Personal qualities:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding AdditionalInfo.PersonalQualities}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock Text="Work" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="25" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="0 45 45 0">
+                        <Separator/>
+                        <StackPanel>
+                            <Label Content="Desired salary:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding BasicInfo.DesiredSalary}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Busyness:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding BasicInfo.BusynessTable.Busyness}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Work plan:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding BasicInfo.WorkPlanTable.WorkPlan}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <TextBlock Text="Contacts" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="25" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="0 15 45 0">
+                        <Separator/>
+                        <StackPanel>
+                            <Label Content="Email:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding BasicInfo.Email}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Phone:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding BasicInfo.Phone}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <TextBlock Text="Foreign" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="25" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="0 15 45 0">
+                        <Separator/>
+                        <StackPanel>
+                            <Label Content="Languages:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding ITSkills.LanguageKnowledge}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <TextBlock Text="Computer" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="25" FontFamily="{StaticResource QRegular}" Opacity="0.1" Margin="0 0 15 0"/>
+                    <StackPanel Margin="0 15 45 0">
+                        <Separator/>
+                        <StackPanel>
+                            <Label Content="Skills:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding ITSkills.Other}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <StackPanel Margin="0 15 45 0">
+                        <Separator/>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Documents:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding ITSkills.Documents}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Internet:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding ITSkills.Internet}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Email:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding ITSkills.Email}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Word:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding ITSkills.MSWord}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="Excel:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding ITSkills.MSExcel}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel LastChildFill="False">
+                            <Label Content="PowerPoint:" FontFamily="{StaticResource QRegular}"/>
+                            <TextBlock Text="{Binding ITSkills.MSPowerPoint}" TextWrapping="Wrap" Background="{StaticResource ColorSecondary75}" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="MenuButton" VerticalAlignment="Bottom" Width="100" Height="15" Visibility="Hidden">
+            <Separator x:Name="Separator" Background="{StaticResource Color50}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="SpecialButton" Grid.ColumnSpan="2" Content="•••" Style="{StaticResource SpecialButton}" Click="SpecialButton_Click"/>
+                <Button x:Name="PrintButton" Grid.Column="0" Content="Print" Style="{StaticResource  BaseButtons}" Click="PrintButton_Click" />
+                <Button x:Name="ReturnSpecialButton" Grid.Column="1" Content="×" Style="{StaticResource BaseButtons}" Click="ReturnSpecialButton_Click"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using C.V.ResumeWPF.Model;
+using C.V.ResumeWPF.View.UpdateView;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,93 @@ namespace C.V.ResumeWPF.View
     /// </summary>
     public partial class ForeignLanguagesAndComputerSkillsPage : Page
     {
+        //Вывод страницы и подключение к базе
+        Core db = new Core();
+
+        //List<ITSkills> arraySkills;
+
         public ForeignLanguagesAndComputerSkillsPage()
         {
             InitializeComponent();
+            //arraySkills = db.context.ITSkills.ToList();
+            //YourIDGrid.DataContext = arraySkills;
+        }
+
+        private void ExpButton_Click(object sender, RoutedEventArgs e)
+        {      
+            if (OtherOwn_TBox.Visibility == Visibility.Collapsed)
+            {
+                ExpButton.Content = "Click here to hidden expand";
+                OtherOwn_TBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ExpButton.Content = "Click here to expand";
+                OtherOwn_TBox.ClearValue(TextBox.TextProperty);
+                OtherOwn_TBox.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void SpecialButton_Click(object sender, RoutedEventArgs e)
+        {
+            Separator.Visibility = Visibility.Collapsed;
+            SpecialButton.Visibility = Visibility.Hidden;
+            AddBaseButton.Visibility = Visibility.Visible;
+            EditBaseButton.Visibility = Visibility.Visible;
+            ReturnSpecialButton.Visibility = Visibility.Visible;
+        }
+
+        private void AddBaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ITSkills skills = new ITSkills()
+                {
+                    LanguageKnowledge = Languages_TBox.Text,
+                    Documents = (bool)Doc_ChBox.IsChecked,
+                    Internet = (bool)Internet_ChBox.IsChecked,
+                    Email = (bool)Email_ChBox.IsChecked,
+                    MSWord = (bool)MSW_ChBox.IsChecked,
+                    MSExcel = (bool)MSE_ChBox.IsChecked,
+                    MSPowerPoint = (bool)MSPP_ChBox.IsChecked,
+                    Other = OtherOwn_TBox.Text
+                };
+                db.context.ITSkills.Add(skills);
+                db.context.SaveChanges();
+                MessageBox.Show("I'M PROUD OF YOU THAT YOU WERE ABLE TO FILL OUT EVERYTHING CORRECTLY AND PRESS THIS FUCKING ENGLISH BUTTON", "YOU DID IT!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch
+            {
+                MessageBox.Show("YOUR MOTHER IS A COLLEGE STUDENT AND YOUR FATHER IS A WHORE! HOW DID YOU MANAGE TO CAUSE THIS ERROR AT ALL? SCREWED UP?", "WHAT HAVE YOU DONE?!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void EditBaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            ForeignLanguagesAndComputerSkillsPage skillsPage = btn.DataContext as ForeignLanguagesAndComputerSkillsPage;
+            NavigationService.Navigate(new ForeignLanguagesAndComputerSkillsUpdatePage());
+        }
+
+        private void ReturnSpecialButton_Click(object sender, RoutedEventArgs e)
+        {
+            Separator.Visibility = Visibility.Visible;
+            SpecialButton.Visibility = Visibility.Visible;
+            AddBaseButton.Visibility = Visibility.Hidden;
+            EditBaseButton.Visibility = Visibility.Hidden;
+            ReturnSpecialButton.Visibility = Visibility.Hidden;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox tBox)
+            {
+                tBox.Text = new string(tBox.Text.Where(ch => (ch >= '0' && ch <= '5')).ToArray());
+            }
+            else
+            {
+                MessageBox.Show("Are you a fool? Do you really not understand at all what is written in black and gray? Damn, I thought you were smarter than my mom..", "You're my cute piece of shit:3", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

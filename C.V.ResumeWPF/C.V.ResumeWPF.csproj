@@ -41,9 +41,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -67,25 +69,29 @@
     <Compile Include="Model\AdditionalInfo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Busyness.cs">
+    <Compile Include="Model\BasicInfo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Categories.cs">
+    <Compile Include="Model\BusynessTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CategoriesTable.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Core.cs" />
     <Compile Include="Model\CousersAndTrainings.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Education.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\EducationForm.cs">
+    <Compile Include="Model\EducationFormTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Experience.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\FamilyStatus.cs">
+    <Compile Include="Model\FamilyStatusTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Guest.cs">
@@ -94,7 +100,7 @@
     <Compile Include="Model\ITSkills.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Learning.cs">
+    <Compile Include="Model\LearningTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model.Context.cs">
@@ -112,20 +118,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Movement.cs">
+    <Compile Include="Model\MovementTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Core.cs" />
-    <Compile Include="Model\Proficiency.cs">
+    <Compile Include="Model\ParticalClasses\HelpImageClass.cs" />
+    <Compile Include="Model\PersonalInfo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Sex.cs">
+    <Compile Include="Model\SexTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\WorkPlan.cs">
+    <Compile Include="Model\SubcategoriesTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\YearOfGraduation.cs">
+    <Compile Include="Model\WorkPlanTable.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\YearOfGraduationTable.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="View\AdditionalInfoPage.xaml.cs">
@@ -154,6 +163,27 @@
     </Compile>
     <Compile Include="View\PersonalInfoPage.xaml.cs">
       <DependentUpon>PersonalInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateView\AdditionalInfoUpdatePage.xaml.cs">
+      <DependentUpon>AdditionalInfoUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateView\BasicInfoUpdatePage.xaml.cs">
+      <DependentUpon>BasicInfoUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateView\CoursesAndTrainingsUpdatePage.xaml.cs">
+      <DependentUpon>CoursesAndTrainingsUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateView\EducationUpdatePage.xaml.cs">
+      <DependentUpon>EducationUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateView\ExperienceUpdatePage.xaml.cs">
+      <DependentUpon>ExperienceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateView\ForeignLanguagesAndComputerSkillsUpdatePage.xaml.cs">
+      <DependentUpon>ForeignLanguagesAndComputerSkillsUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateView\PersonalInfoUpdatePage.xaml.cs">
+      <DependentUpon>PersonalInfoUpdatePage.xaml</DependentUpon>
     </Compile>
     <Page Include="Assets\Dictionaties\Dictionary.xaml">
       <SubType>Designer</SubType>
@@ -207,6 +237,34 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UpdateView\AdditionalInfoUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateView\BasicInfoUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateView\CoursesAndTrainingsUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateView\EducationUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateView\ExperienceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateView\ForeignLanguagesAndComputerSkillsUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateView\PersonalInfoUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -244,29 +302,45 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\ParticalClasses\" />
+    <Resource Include="Assets\Images\MenuImages\1.png" />
+    <Resource Include="Assets\Images\MenuImages\2.png" />
+    <Resource Include="Assets\Images\MenuImages\3.png" />
+    <Resource Include="Assets\Images\MenuImages\5.png" />
+    <Resource Include="Assets\Images\MenuImages\4.png" />
+    <Resource Include="Assets\Images\Pic.png" />
+    <Resource Include="Assets\Images\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Logo.png" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Example.png" />
+    <Resource Include="Assets\Images\BCalendar.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Union.png" />
+    <Resource Include="Assets\Images\BTrueCheckArrow.png" />
+    <Resource Include="Assets\Images\BFalseCheckArrow.png" />
+    <Resource Include="Assets\Images\CommonCheckArrow.png" />
+    <Resource Include="Assets\Images\WFalseCheckArrow.png" />
+    <Resource Include="Assets\Images\WTrueCheckArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\WCalendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Images\SelectedImages\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

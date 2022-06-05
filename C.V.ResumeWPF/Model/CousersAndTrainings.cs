@@ -23,10 +23,10 @@ namespace C.V.ResumeWPF.Model
         public int IDCousersAndTrainings { get; set; }
         public string Course { get; set; }
         public string Institution { get; set; }
-        public Nullable<int> IDYearOfGraduction { get; set; }
+        public int IDYearOfGraduction { get; set; }
         public string Duration { get; set; }
     
-        public virtual YearOfGraduation YearOfGraduation { get; set; }
+        public virtual YearOfGraduationTable YearOfGraduationTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Guest> Guest { get; set; }
     }

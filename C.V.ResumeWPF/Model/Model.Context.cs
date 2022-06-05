@@ -13,10 +13,10 @@ namespace C.V.ResumeWPF.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class ResumeEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public ResumeEntities()
+            : base("name=ResumeEntities")
         {
         }
     
@@ -26,20 +26,22 @@ namespace C.V.ResumeWPF.Model
         }
     
         public virtual DbSet<AdditionalInfo> AdditionalInfo { get; set; }
-        public virtual DbSet<Busyness> Busyness { get; set; }
-        public virtual DbSet<Categories> Categories { get; set; }
+        public virtual DbSet<BasicInfo> BasicInfo { get; set; }
+        public virtual DbSet<BusynessTable> BusynessTable { get; set; }
+        public virtual DbSet<CategoriesTable> CategoriesTable { get; set; }
         public virtual DbSet<CousersAndTrainings> CousersAndTrainings { get; set; }
         public virtual DbSet<Education> Education { get; set; }
-        public virtual DbSet<EducationForm> EducationForm { get; set; }
+        public virtual DbSet<EducationFormTable> EducationFormTable { get; set; }
         public virtual DbSet<Experience> Experience { get; set; }
-        public virtual DbSet<FamilyStatus> FamilyStatus { get; set; }
+        public virtual DbSet<FamilyStatusTable> FamilyStatusTable { get; set; }
         public virtual DbSet<Guest> Guest { get; set; }
         public virtual DbSet<ITSkills> ITSkills { get; set; }
-        public virtual DbSet<Learning> Learning { get; set; }
-        public virtual DbSet<Movement> Movement { get; set; }
-        public virtual DbSet<Proficiency> Proficiency { get; set; }
-        public virtual DbSet<Sex> Sex { get; set; }
-        public virtual DbSet<WorkPlan> WorkPlan { get; set; }
-        public virtual DbSet<YearOfGraduation> YearOfGraduation { get; set; }
+        public virtual DbSet<LearningTable> LearningTable { get; set; }
+        public virtual DbSet<MovementTable> MovementTable { get; set; }
+        public virtual DbSet<PersonalInfo> PersonalInfo { get; set; }
+        public virtual DbSet<SexTable> SexTable { get; set; }
+        public virtual DbSet<SubcategoriesTable> SubcategoriesTable { get; set; }
+        public virtual DbSet<WorkPlanTable> WorkPlanTable { get; set; }
+        public virtual DbSet<YearOfGraduationTable> YearOfGraduationTable { get; set; }
     }
 }

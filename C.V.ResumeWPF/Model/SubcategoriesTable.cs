@@ -12,18 +12,23 @@ namespace C.V.ResumeWPF.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Sex
+    public partial class SubcategoriesTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sex()
+        public SubcategoriesTable()
         {
-            this.Guest = new HashSet<Guest>();
+            this.AdditionalInfo = new HashSet<AdditionalInfo>();
         }
     
-        public int IDSex { get; set; }
-        public string Sex1 { get; set; }
+        public int IDSubcategories { get; set; }
+        public bool A1 { get; set; }
+        public bool B1 { get; set; }
+        public bool C1 { get; set; }
+        public bool C1E { get; set; }
+        public bool D1 { get; set; }
+        public bool D1E { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Guest> Guest { get; set; }
+        public virtual ICollection<AdditionalInfo> AdditionalInfo { get; set; }
     }
 }

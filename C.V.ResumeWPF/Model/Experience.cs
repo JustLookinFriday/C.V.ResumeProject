@@ -21,11 +21,10 @@ namespace C.V.ResumeWPF.Model
         }
     
         public int IDExperience { get; set; }
-        public Nullable<System.DateTime> Hire { get; set; }
-        public Nullable<System.DateTime> Fire { get; set; }
-        public Nullable<bool> Now { get; set; }
+        public System.DateTime Hire { get; set; }
+        public System.DateTime Fire { get; set; }
         public string LastPost { get; set; }
-        public Nullable<bool> FullEmployment { get; set; }
+        public bool FullEmployment { get; set; }
         public string Organization { get; set; }
         public string ResponsibilitiesAndAchievements { get; set; }
     

@@ -4,9 +4,9 @@
              xmlns:local="clr-namespace:C.V.ResumeWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!--Кастомизация-->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!--Кастомизация-->
                 <ResourceDictionary Source="/Assets/Dictionaties/Dictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

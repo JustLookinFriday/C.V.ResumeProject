@@ -12,17 +12,30 @@ namespace C.V.ResumeWPF.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Movement
+    public partial class BasicInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Movement()
+        public BasicInfo()
         {
             this.Guest = new HashSet<Guest>();
         }
     
-        public int IDMovement { get; set; }
-        public string Movement1 { get; set; }
+        public int IDBasicInfo { get; set; }
+        public string Pic { get; set; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string Patronymic { get; set; }
+        public string Post { get; set; }
+        public double DesiredSalary { get; set; }
+        public int IDBusyness { get; set; }
+        public int IDWorkPlan { get; set; }
+        public bool BusinessTrips { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+
     
+        public virtual BusynessTable BusynessTable { get; set; }
+        public virtual WorkPlanTable WorkPlanTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Guest> Guest { get; set; }
     }
